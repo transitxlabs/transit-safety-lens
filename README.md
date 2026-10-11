@@ -1,8 +1,8 @@
 # Transit Safety Lens
 
-TransitX Labs Inc. is building a reproducible public transit safety data research system. This local package measures the completeness, consistency and comparability of published National Transit Database records, and estimates exposure-normalised changes under a stated statistical model. It supports safety data management by making missingness, exclusions and source lineage inspectable.
+TransitX Labs Inc. is building a reproducible public transit safety data research system. This package measures the completeness, consistency and comparability of published National Transit Database records, and estimates exposure-normalised changes under a stated statistical model. It supports safety data management by making missingness, exclusions and source lineage inspectable.
 
-**Status: local aggregate release candidate with incident and non-major raw rows excluded from tracking. The Director's release check remains pending. Acquisition and revision gaps remain; held-out coverage is below nominal and flags remain exploratory.**
+**Status: public aggregate release (2026-10-11), with incident and non-major raw rows excluded from tracking. Acquisition and revision gaps remain; held-out coverage is below nominal and flags remain exploratory.**
 
 ## Frozen record coverage
 
@@ -49,7 +49,7 @@ All published field availability is measured as aggregate counts in outputs/fiel
 
 These records cover NTD Full Reporters in the acquired products. They do not measure all U.S. transit incidents, under-reporting, individual passenger risk or agency fault. Reporting thresholds, validation lag, retrospective reclassification, sampled ridership and adjusted exposure can alter apparent trends. Missing months are not zeros. The model assumes independent Poisson counts conditional on rate and exposure, with a gamma hierarchy for between-agency differences. It does not model within-agency temporal clustering, pandemic effects, changes in reporting practice or uncertainty in exposure. Hyperparameters are estimated, so intervals and error control are conditional on those estimates. Poor empirical coverage is evidence against using these intervals for operational decisions. No causal or real-world safety conclusion follows from a flag.
 
-FTA workbook and original manual downloads returned access errors in the direct route; the browser workbook download did not produce a verified file. The current portal exports are complete, but the safety records unique to the unacquired 2002-2013 workbooks and raw unadjusted exposure workbook are not frozen here. Two overlapping historical releases were not obtained, so empirical revision rates are unavailable. A fresh export of the same release is not a historical release. Actual submission timestamps are not published in these inputs, so possible late service is a missingness proxy. The timeline uses conservative annual guards where exact implementation dates remain unverified. Public release requires the Director's check.
+FTA workbook and original manual downloads returned access errors in the direct route; the browser workbook download did not produce a verified file. The current portal exports are complete, but the safety records unique to the unacquired 2002-2013 workbooks and raw unadjusted exposure workbook are not frozen here. Two overlapping historical releases were not obtained, so empirical revision rates are unavailable. A fresh export of the same release is not a historical release. Actual submission timestamps are not published in these inputs, so possible late service is a missingness proxy. The timeline uses conservative annual guards where exact implementation dates remain unverified. The public release followed an internal release check on 2026-10-11.
 
 ## Rebuild and checks
 

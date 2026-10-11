@@ -62,7 +62,7 @@ def render_release(root: Path, summary: dict[str, Any], output: Path) -> None:
         "revision rates are unavailable. A fresh export of the same release is not a historical "
         "release. Actual submission timestamps are not published in these inputs, so possible late "
         "service is a missingness proxy. The timeline uses conservative annual guards where exact "
-        "implementation dates remain unverified. Public release requires the Director's check."
+        "implementation dates remain unverified. The public release followed an internal release check on 2026-10-11."
     )
     rebuild = (
         "Use Python 3.14 and the pinned dependencies in pyproject.toml. Install with "
@@ -80,9 +80,9 @@ def render_release(root: Path, summary: dict[str, Any], output: Path) -> None:
     )
     readme = f"""# Transit Safety Lens
 
-TransitX Labs Inc. is building a reproducible public transit safety data research system. This local package measures the completeness, consistency and comparability of published National Transit Database records, and estimates exposure-normalised changes under a stated statistical model. It supports safety data management by making missingness, exclusions and source lineage inspectable.
+TransitX Labs Inc. is building a reproducible public transit safety data research system. This package measures the completeness, consistency and comparability of published National Transit Database records, and estimates exposure-normalised changes under a stated statistical model. It supports safety data management by making missingness, exclusions and source lineage inspectable.
 
-**Status: local aggregate release candidate with incident and non-major raw rows excluded from tracking. The Director's release check remains pending. Acquisition and revision gaps remain; held-out coverage is below nominal and flags remain exploratory.**
+**Status: public aggregate release (2026-10-11), with incident and non-major raw rows excluded from tracking. Acquisition and revision gaps remain; held-out coverage is below nominal and flags remain exploratory.**
 
 ## Frozen record coverage
 
@@ -215,7 +215,7 @@ Code: Apache-2.0. Data: source-specific terms, including an unresolved non-major
     def footer(canvas: Any, document: Any) -> None:
         canvas.setFont("Helvetica", 8)
         canvas.setFillColor(colors.HexColor("#344054"))
-        canvas.drawString(0.65 * inch, 0.4 * inch, "Transit Safety Lens | local research package")
+        canvas.drawString(0.65 * inch, 0.4 * inch, "Transit Safety Lens | public research package")
         canvas.drawRightString(7.85 * inch, 0.4 * inch, str(document.page))
     document = SimpleDocTemplate(str(root / "docs/TECHNICAL_NOTE.pdf"), pagesize=(8.5 * inch, 11 * inch),
                                  rightMargin=0.65 * inch, leftMargin=0.65 * inch,
@@ -226,7 +226,7 @@ Code: Apache-2.0. Data: source-specific terms, including an unresolved non-major
     body = f"""<!doctype html>
 <html lang="en-CA"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Reproducible checks and bounded statistical comparisons for public transit safety records."><title>Transit Safety Lens | TransitX Labs</title><link rel="stylesheet" href="style.css"></head>
 <body><a class="skip" href="#main">Skip to content</a><header><p>TransitX Labs Inc. / research</p><h1>Transit Safety Lens</h1><p>Trace public transit safety metrics to their records, checks and reporting definitions.</p></header>
-<main id="main"><p class="status"><strong>Local aggregate release candidate.</strong> Raw incident and non-major rows remain local and untracked. Release review and acquisition gaps remain. Held-out predictive coverage is below nominal; flags remain exploratory.</p><section><h2>What the records support</h2><p>{html.escape(limits)}</p></section>
+<main id="main"><p class="status"><strong>Public aggregate release (2026-10-11).</strong> Raw incident and non-major rows remain local and untracked. Acquisition gaps remain. Held-out predictive coverage is below nominal; flags remain exploratory.</p><section><h2>What the records support</h2><p>{html.escape(limits)}</p></section>
 <section><h2>Model-conditional change results</h2><p>The 2021-2022 comparison includes {model['eligible_comparisons']} eligible agency/mode pairs. It flags {model['rate_increase']} reported-rate increases and {model['rate_decrease']} decreases under the stated posterior rule. These are statistical statements about published records, not findings of agency fault.</p><p>The held-out predictive coverage is {coverage} ({held['covered']} / {held['eligible']}); directional persistence is {persistence} ({held['persisted']} / {held['flagged']}). Source: outputs/summary.json.</p>{baseline.to_html(index=False,border=0,classes='results').replace('<th>','<th scope="col">')}</section>
 <section><h2>Coverage and unresolved data</h2>{inv[['dataset','records','accepted','rejected']].to_html(index=False,border=0).replace('<th>','<th scope="col">')}<p>{html.escape(gaps)}</p></section>
 <section><h2>Reproduce and inspect</h2><p>With pinned dependencies and the excluded local frozen inputs at their manifest paths, run <code>make rebuild</code>. All calculations use frozen inputs without network access. The aggregate checkout alone cannot replay the incident audits.</p><ul><li><a href="../TECHNICAL_NOTE.pdf">Technical note (PDF)</a></li><li><a href="../TECHNICAL_NOTE.md">Technical note (Markdown)</a></li></ul><p>Source checksums, catalogues without cached values, aggregate quality tables, monthly provenance and intervals are included. No remote analytics, scripts, fonts or tracking are used on this page.</p></section></main><footer><p>Code: Apache-2.0. Data attribution: Federal Transit Administration, U.S. Department of Transportation, National Transit Database. No endorsement is implied.</p></footer></body></html>

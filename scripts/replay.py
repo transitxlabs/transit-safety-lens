@@ -70,7 +70,9 @@ def main() -> None:
                "network": "disabled_in_process", "outputs_compared": len(expected),
                "local_inputs_staged": staged, "local_outputs_compared": len(local_expected),
                "local_checksums_match": True,
-               "checksums_match": True, "destination": str(checkout), "exit_code": 0}
+               "checksums_match": True, "destination": (checkout.relative_to(root).as_posix() if checkout.is_relative_to(root)
+                                                      else f"{destination.name}/checkout"),
+               "exit_code": 0}
     (destination / "receipt.json").write_text(json.dumps(receipt, indent=2) + "\n")
     print(json.dumps(receipt, sort_keys=True))
 
