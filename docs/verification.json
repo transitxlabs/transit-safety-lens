@@ -1,0 +1,178 @@
+{
+  "catalogue_replay": {
+    "catalogues_compared": 10,
+    "checksums_match": true,
+    "exit_code": 0,
+    "sha256": {
+      "exposure_metadata.json": "aeb9facbf7e1e1e2466b495bccc8b84650c06d590016227cf6171810ff2f6c3f",
+      "exposure_metadata_after.json": "aeb9facbf7e1e1e2466b495bccc8b84650c06d590016227cf6171810ff2f6c3f",
+      "fra_security_metadata.json": "cc432638f7fc5590c2bb938f6c1ff9793690fa8653f2c2248b3171fda3c857c4",
+      "fra_security_metadata_after.json": "cc432638f7fc5590c2bb938f6c1ff9793690fa8653f2c2248b3171fda3c857c4",
+      "major_metadata.json": "0aecfd59bab95e9bcda81a36c961d651ca4c743170aa95577f8a4dddde480273",
+      "major_metadata_after.json": "0aecfd59bab95e9bcda81a36c961d651ca4c743170aa95577f8a4dddde480273",
+      "modal_metadata.json": "c720a3b748df9d92fdd30dd332a99ae1fed0d54b13b684372f011416de0a9905",
+      "modal_metadata_after.json": "c720a3b748df9d92fdd30dd332a99ae1fed0d54b13b684372f011416de0a9905",
+      "nonmajor_metadata.json": "cbc3071220fb1abc6d51cf8e2b1495fffe40aad16305e15211322b43db09e84a",
+      "nonmajor_metadata_after.json": "cbc3071220fb1abc6d51cf8e2b1495fffe40aad16305e15211322b43db09e84a"
+    }
+  },
+  "checks": [
+    {
+      "command": "make rebuild PYTHON=work-tmp/venv/bin/python",
+      "exit_code": 0,
+      "log_sha256": "3eb71a76dd5482b8393c6e15c550f2151aa85cfcf309646af7a91df799ac9195"
+    },
+    {
+      "command": "make check PYTHON=work-tmp/venv/bin/python",
+      "exit_code": 0,
+      "lint_exit_code": 0,
+      "log_sha256": "d931ee61f44bb1dc1ceded626b574e52905a5dec6001078047fb8a4464e6e70b",
+      "tests_exit_code": 0,
+      "tests_passed": 23,
+      "types_exit_code": 0
+    },
+    {
+      "checksums_match": true,
+      "command": "python scripts/replay.py --destination work-tmp/replay-p1b --local-inputs .",
+      "exit_code": 0,
+      "local_inputs_staged": 25,
+      "local_outputs_compared": 8,
+      "log_sha256": "7efeb064116b5e6a7d5583eb3088fda8f5e2060b31aa1415cb0be8371b6d12bd",
+      "outputs_compared": 24
+    },
+    {
+      "command": "make check in the archived checkout with preinstalled dependencies",
+      "exit_code": 0,
+      "lint_exit_code": 0,
+      "log_sha256": "ecaae3231f9f7d3d99e3cf1048c44fef604f9b3e652f5171f0c4b6caa9457df0",
+      "tests_exit_code": 0,
+      "tests_passed": 23,
+      "types_exit_code": 0
+    },
+    {
+      "command": "Replay with a same-size incorrect-hash local input",
+      "expected_replay_exit_code": 1,
+      "verification_exit_code": 0
+    }
+  ],
+  "ci_status": "Local equivalent lint, types and network-blocked fixtures passed in the archived checkout. The remote workflow was not executed; the Linux network-namespace step was not run on this host.",
+  "distribution": "Excluded local evidence is ignored; released tables contain no private incident field payloads. Catalogue schema names and aggregate field-completeness counts remain.",
+  "numeric_comparison": {
+    "analytical_outputs_compared": 31,
+    "byte_identical": [
+      "agency_mode_universe.csv",
+      "agency_sizes.csv",
+      "annual_panel.csv",
+      "definition_timeline.csv",
+      "event_reconciliation.csv",
+      "exposure_join_summary.csv",
+      "exposure_joins.csv",
+      "exposure_reconciliation.csv",
+      "field_completeness.csv.gz",
+      "fra_security_exposure_joins.csv",
+      "fra_security_joins.csv",
+      "inventory.csv",
+      "join_summary.csv",
+      "major_exposure_joins.csv",
+      "major_joins.csv",
+      "modal_exposure_joins.csv",
+      "model_config.json",
+      "monthly_provenance.csv.gz",
+      "nonmajor_exposure_joins.csv",
+      "nonmajor_joins.csv",
+      "priors.csv",
+      "quality_issues.csv",
+      "quality_rates.csv",
+      "recent_comparison_exclusions.csv",
+      "revision_changes.csv",
+      "revision_rates.csv"
+    ],
+    "exit_code": 0,
+    "mismatches": [],
+    "only_direction_labels_or_summary_keys_changed": [
+      "baseline_comparison.csv",
+      "credible_change.csv",
+      "heldout.csv",
+      "heldout_training_flags.csv",
+      "summary.json"
+    ]
+  },
+  "package_audit": {
+    "all_local_inputs_ignored": true,
+    "exit_code": 0,
+    "free_space_bytes": 35491643392,
+    "html_checks": [
+      "language",
+      "landmarks",
+      "skip target",
+      "column headers",
+      "local links",
+      "no scripts or remote resources"
+    ],
+    "old_head_absent_from_object_database": true,
+    "remote_count": 0
+  },
+  "packages": {
+    "mypy": "2.4.0",
+    "numpy": "2.5.4",
+    "openpyxl": "3.1.5",
+    "pandas": "3.0.6",
+    "pandas-stubs": "3.0.5.260914",
+    "pytest": "9.1.1",
+    "reportlab": "5.0.1",
+    "ruff": "0.17.0",
+    "scipy": "1.18.1"
+  },
+  "pdf_audit": {
+    "all_text_within_page_bounds": true,
+    "body_ymax": [
+      426.077,
+      418.077,
+      456.077,
+      516.077,
+      426.077,
+      546.077
+    ],
+    "exit_code": 0,
+    "pages": 6
+  },
+  "pdf_visual_review": "All six regenerated pages reviewed for legibility and clipping.",
+  "python": "3.14.6",
+  "receipt_scope": "Replay and source-result history scan cover the root commit named in replay_receipt.json. This follow-up adds only receipts; tested source, inputs, catalogues, documents and results are unchanged.",
+  "source_result_history_scan": {
+    "commits_scanned": 1,
+    "errors": [],
+    "excluded_paths": 34,
+    "exit_code": 0,
+    "mode": "history",
+    "outputs_scanned": 34,
+    "protected_distinct_values": 322507,
+    "schema_reference_fields": [
+      "additional_assault_information",
+      "approximate_address",
+      "assault_homicide_person_type_desc",
+      "assault_homicide_transit_worker_flag",
+      "assault_homicide_type_desc",
+      "evacuation_comment",
+      "evacuation_location",
+      "hazmat_type_description",
+      "incident_date",
+      "incident_description",
+      "incident_number",
+      "incident_time",
+      "latitude",
+      "latlon",
+      "longitude",
+      "manufacturer_description",
+      "multiple_locations_list",
+      "other_event_type_description",
+      "other_fire_fuel_description",
+      "person_list",
+      "rail_grade_crossing_comment",
+      "revenue_vehicle_identifier_list",
+      "weather_comment"
+    ],
+    "schema_reference_scope": "Catalogue schemas, aggregate field-completeness names and release validation code are references, not source field payloads.",
+    "unique_blobs_scanned": 71
+  }
+}
