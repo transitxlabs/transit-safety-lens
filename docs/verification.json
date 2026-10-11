@@ -138,7 +138,7 @@
   },
   "pdf_visual_review": "All six regenerated pages reviewed for legibility and clipping.",
   "python": "3.14.6",
-  "receipt_scope": "Replay and source-result history scan cover the root commit named in replay_receipt.json. This follow-up adds only receipts; tested source, inputs, catalogues, documents and results are unchanged.",
+  "receipt_scope": "Replay covers the commit named in replay_receipt.json (clean archive, network disabled in process, all 24 public and 8 local output checksums matched). The source-result history scan, PDF audit and visual review cover the root commit e2f46b70572ff839dc10777cb7f3bc914d0c7aab. Later commits change only release-status wording, the replay receipt path format and receipts; documents and their checksums were regenerated from the same frozen inputs and results. The regenerated PDF still has six pages and its changed page was checked visually.",
   "source_result_history_scan": {
     "commits_scanned": 1,
     "errors": [],

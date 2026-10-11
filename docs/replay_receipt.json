@@ -1,7 +1,7 @@
 {
   "checksums_match": true,
-  "commit": "e2f46b70572ff839dc10777cb7f3bc914d0c7aab",
-  "destination": "/Users/studio/Developer/showcase/transitxlabs/transit-safety-lens/work-tmp/replay-p1b/checkout",
+  "commit": "0b6cc9515037c53bbeaebf76744c6d7566bbd2c6",
+  "destination": "work-tmp/replay-release-r1/checkout",
   "exit_code": 0,
   "local_checksums_match": true,
   "local_inputs_staged": 25,
