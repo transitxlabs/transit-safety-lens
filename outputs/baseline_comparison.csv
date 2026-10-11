@@ -1,0 +1,5 @@
+baseline,direction,comparisons,naive_flags,credible_flags,kept,dropped,added,opposite_direction
+raw_count,rate increase,893,351,55,55,296,0,0
+raw_count,rate decrease,893,224,18,18,206,0,0
+raw_rate,rate increase,893,374,55,55,319,0,0
+raw_rate,rate decrease,893,261,18,18,243,0,0

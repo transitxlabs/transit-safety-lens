@@ -1,0 +1,346 @@
+{
+  "assetType": "dataset",
+  "averageRating": 0,
+  "category": "Public Transit",
+  "columns": [
+    {
+      "dataTypeName": "text",
+      "description": "A five-digit identifying number for each agency used in the current NTD system.",
+      "fieldName": "_5_digit_ntd_id",
+      "format": {},
+      "id": 634684721,
+      "name": "5 Digit NTD ID",
+      "position": 2,
+      "renderTypeName": "text",
+      "tableColumnId": 140046806
+    },
+    {
+      "dataTypeName": "text",
+      "description": "The legal name of the entity reporting to the National Transit Database.",
+      "fieldName": "agency",
+      "format": {},
+      "id": 634684723,
+      "name": "Agency",
+      "position": 4,
+      "renderTypeName": "text",
+      "tableColumnId": 140046792
+    },
+    {
+      "dataTypeName": "text",
+      "description": "The Census Bureau's Urban Area Census Code (UACE). This five-digit code uniquely identifies an urban area and remains unchanged from census to census.",
+      "fieldName": "uace_code",
+      "format": {},
+      "id": 634684751,
+      "name": "Primary UZA UACE Code",
+      "position": 5,
+      "renderTypeName": "text",
+      "tableColumnId": 168357403
+    },
+    {
+      "dataTypeName": "text",
+      "description": "Groups modes based on whether they are:  Rail, Running Non-Rail Surface Transportation, or Ferryboat.",
+      "fieldName": "rail_bus_fetty",
+      "format": {},
+      "id": 634684750,
+      "name": "Rail/Bus/Ferry",
+      "position": 6,
+      "renderTypeName": "text",
+      "tableColumnId": 168357402
+    },
+    {
+      "dataTypeName": "text",
+      "description": "A system for carrying transit passengers described by specific right-of-way (ROW), technology and operational features.",
+      "fieldName": "mode_name",
+      "format": {},
+      "id": 634684749,
+      "name": "Mode Name",
+      "position": 7,
+      "renderTypeName": "text",
+      "tableColumnId": 168357401
+    },
+    {
+      "dataTypeName": "text",
+      "description": "A system for carrying transit passengers described by specific right-of-way (ROW), technology and operational features.",
+      "fieldName": "mode",
+      "format": {},
+      "id": 634684724,
+      "name": "Mode",
+      "position": 8,
+      "renderTypeName": "text",
+      "tableColumnId": 140046801
+    },
+    {
+      "dataTypeName": "text",
+      "description": "Describes how public transportation services are provided by the transit agency: directly operated (DO) or purchased transportation which also includes from Taxi Operators and Transportation Network Companies (PT, TX, TN) services.",
+      "fieldName": "type_of_service",
+      "format": {},
+      "id": 634684725,
+      "name": "Type of Service",
+      "position": 9,
+      "renderTypeName": "text",
+      "tableColumnId": 140046783
+    },
+    {
+      "dataTypeName": "checkbox",
+      "description": "Flag that identifies whether the mode is fixed-route or non-fixed route.",
+      "fieldName": "fixed_route_flag",
+      "format": {},
+      "id": 634684748,
+      "name": "Fixed Route Flag",
+      "position": 10,
+      "renderTypeName": "checkbox",
+      "tableColumnId": 168357400
+    },
+    {
+      "dataTypeName": "checkbox",
+      "description": "Separates Rail (True) from Non-Rail (False) modes.",
+      "fieldName": "rail_y_n",
+      "format": {},
+      "id": 634684752,
+      "name": "Rail (True/False)",
+      "position": 11,
+      "renderTypeName": "checkbox",
+      "tableColumnId": 168357404
+    },
+    {
+      "dataTypeName": "text",
+      "description": "The month in which the Non-major incident occurred.",
+      "fieldName": "month",
+      "format": {},
+      "id": 634684728,
+      "name": "Month",
+      "position": 14,
+      "renderTypeName": "text",
+      "tableColumnId": 167212078
+    },
+    {
+      "dataTypeName": "number",
+      "description": "The year in which the Non-major incident occurred.",
+      "fieldName": "year",
+      "format": {
+        "noCommas": "true"
+      },
+      "id": 634684729,
+      "name": "Year",
+      "position": 15,
+      "renderTypeName": "number",
+      "tableColumnId": 140182963
+    },
+    {
+      "dataTypeName": "text",
+      "description": "Identifier of a Safety (SFT) or (Security Event). [Safety Event: A collision, derailment, fire, hazardous material spill, act of nature (Act of God), evacuation, or OSONOC occurring on transit right-of-way, in a transit revenue facility, in a transit maintenance facility, or involving a transit revenue vehicle and meeting established NTD thresholds.] OR [Security event: An occurrence of a bomb threat, bombing, arson, hijacking, sabotage, cyber security event, assault, robbery, rape, burglary, suicide, attempted suicide (not involving a transit vehicle), larceny, theft, vandalism, homicide, CBR (chemical/biological/radiological) or nuclear release, or other event.]",
+      "fieldName": "sftsecfl",
+      "format": {},
+      "id": 634684734,
+      "name": "Safety/Security",
+      "position": 20,
+      "renderTypeName": "text",
+      "tableColumnId": 140046770
+    },
+    {
+      "dataTypeName": "text",
+      "description": "The type of event that occurred.",
+      "fieldName": "eventtype",
+      "format": {},
+      "id": 634684735,
+      "name": "Event Type",
+      "position": 21,
+      "renderTypeName": "text",
+      "tableColumnId": 140046773
+    },
+    {
+      "dataTypeName": "text",
+      "description": "The area in facility, vehicle, or other where the event took place.",
+      "fieldName": "location",
+      "format": {},
+      "id": 634684736,
+      "name": "Location",
+      "position": 22,
+      "renderTypeName": "text",
+      "tableColumnId": 140046809
+    },
+    {
+      "dataTypeName": "text",
+      "description": "General grouping of the location column that can fall into either facility, vehicle, or other.",
+      "fieldName": "location_group",
+      "format": {},
+      "id": 634684737,
+      "name": "Location Group",
+      "position": 23,
+      "renderTypeName": "text",
+      "tableColumnId": 140046787
+    },
+    {
+      "dataTypeName": "number",
+      "description": "Count of non-major physical assaults on transit vehicle operators.",
+      "fieldName": "minor_physical_assaults_on_operators",
+      "format": {},
+      "id": 634684738,
+      "name": "Physical Assaults on Operators (Security Events Only)",
+      "position": 24,
+      "renderTypeName": "number",
+      "tableColumnId": 147805920
+    },
+    {
+      "dataTypeName": "number",
+      "description": "Count of non-major non-physical assaults on transit vehicle operators.",
+      "fieldName": "non_physical_assaults_on_operators_security_events_only_",
+      "format": {},
+      "id": 634684739,
+      "name": "Non-Physical Assaults on Operators (Security Events Only)",
+      "position": 25,
+      "renderTypeName": "number",
+      "tableColumnId": 153281879
+    },
+    {
+      "dataTypeName": "number",
+      "description": "Count of non-major physical assaults on transit workers who are not vehicle operators.",
+      "fieldName": "minor_physical_assaults_on_other_transit_workers",
+      "format": {},
+      "id": 634684740,
+      "name": "Physical Assaults on Other Transit Workers (Security Events Only)",
+      "position": 26,
+      "renderTypeName": "number",
+      "tableColumnId": 147805918
+    },
+    {
+      "dataTypeName": "number",
+      "description": "Count of non-major non-physical assaults on transit workers who are not vehicle operators.",
+      "fieldName": "minor_nonphysical_assaults_on_other_transit_workers",
+      "format": {},
+      "id": 634684741,
+      "name": "Non-Physical Assaults on Other Transit Workers (Security Events Only)",
+      "position": 27,
+      "renderTypeName": "number",
+      "tableColumnId": 147805917
+    },
+    {
+      "dataTypeName": "text",
+      "description": "Additional information about an assault event.",
+      "fieldName": "additional_assault_information",
+      "format": {},
+      "id": 634684742,
+      "name": "Additional Assault Information",
+      "position": 28,
+      "renderTypeName": "text",
+      "tableColumnId": 154785611
+    },
+    {
+      "dataTypeName": "number",
+      "description": "Less severe incidents or events that do not meet the requirements of Reportable Events: Other safety occurrences not otherwise classified (injuries); and Fires. The number is determined by mode, type of service, month, and location.",
+      "fieldName": "total_incidents",
+      "format": {},
+      "id": 634684743,
+      "name": "Total Events",
+      "position": 29,
+      "renderTypeName": "number",
+      "tableColumnId": 156805303
+    },
+    {
+      "dataTypeName": "number",
+      "description": "Count of patrons of the transit system or people waiting for transit injured during the given safety event.",
+      "fieldName": "customer",
+      "format": {},
+      "id": 634684744,
+      "name": "Customer Injuries (Safety Events Only)",
+      "position": 30,
+      "renderTypeName": "number",
+      "tableColumnId": 148022682
+    },
+    {
+      "dataTypeName": "number",
+      "description": "Count of Transit Workers injured for the given safety event.",
+      "fieldName": "worker",
+      "format": {},
+      "id": 634684745,
+      "name": "Worker Injuries (Safety Events Only)",
+      "position": 31,
+      "renderTypeName": "number",
+      "tableColumnId": 148022684
+    },
+    {
+      "dataTypeName": "number",
+      "description": "Count of pedestrians and others not using transit or working for the transit system injured for the given safety event.",
+      "fieldName": "other",
+      "format": {},
+      "id": 634684746,
+      "name": "Other Injuries (Safety Events Only)",
+      "position": 32,
+      "renderTypeName": "number",
+      "tableColumnId": 148022685
+    },
+    {
+      "dataTypeName": "number",
+      "description": "Count of all people injured for the given safety event. The count should not exceed one (1), as events with multiple injuries meet a major reporting threshold.",
+      "fieldName": "total_injuries",
+      "format": {},
+      "id": 634684747,
+      "name": "Total Injuries (Safety Events Only)",
+      "position": 33,
+      "renderTypeName": "number",
+      "tableColumnId": 156805304
+    }
+  ],
+  "createdAt": 1637173901,
+  "description": "Counts of Non-Major Safety and Security Events are reported to the National Transit Database on a monthly basis, by transit agency and transit mode. These include minor fires on transit property requiring suppression, transit worker assaults not involving transport for medical attention, and other safety events that are not reportable as Major Events because a Major Event reporting threshold is not met (see Safety and Security Events dataset for a list of Major Events). \n\nIn this file you will find the number of occurrences or safety incidents per month and the number of injuries in Safety Events (Safety/Security = SAF) where an individual was immediately transported away from the scene for medical attention due to those occurrences. There will be one entry for any transit mode/location with at least one occurrence for the given month. \n\nThe file also contains Transit Worker Assaults which did not immediately transport away from the scene for 2023-present, as well as other Security Events (Safety/Security = SEC) reported historically but no longer collected by FTA. Note that an assault involving transport away from the scene for medical attention meets the Injury threshold and is not counted in this dataset. \n\nAgencies are not required to provide details for these events, and any description provided is omitted. The description can be available upon request.\n\nUpdate 5/6/24: FTA has updated its validation procedure for Non-Major S&S events to allow for inclusion in the data publication sooner in certain cases. This month, users of this dataset may notice a larger increase in S&S events than normal for certain records in 2023-2024 (only years for which data collection and validation is presently ongoing) compared to prior releases. This was done to allow for a more timely release of validated data.",
+  "diciBackend": false,
+  "displayType": "table",
+  "domainCName": "data.transportation.gov",
+  "downloadCount": 15484,
+  "flags": [
+    "default",
+    "federated",
+    "internalToPublicFederatedView",
+    "restorable",
+    "restorePossibleForType"
+  ],
+  "hideFromCatalog": false,
+  "hideFromDataJson": false,
+  "id": "urir-txqm",
+  "locked": false,
+  "metadata": {
+    "availableDisplayTypes": [
+      "table",
+      "fatrow",
+      "page"
+    ],
+    "custom_fields": {
+      "Common Core": {
+        "Bureau Code": "021:36",
+        "Contact Email": "NTDHelp@dot.gov",
+        "Contact Name": "NTD Program Support",
+        "License": "https://project-open-data.cio.gov/unknown-license/",
+        "Program Code": "021:000"
+      },
+      "Common Core 3": {
+        "Bureau Code": "021:36",
+        "Contact Email": "NTDHelp@dot.gov",
+        "Contact Name": "NTD Program Support",
+        "Program Code": "021:000"
+      }
+    },
+    "rowLabel": "Agency-Mode-Type of Service-Month-Event Type-Event Location"
+  },
+  "name": "Non-Major Safety and Security Events",
+  "newBackend": true,
+  "numberOfComments": 0,
+  "oid": 42196960,
+  "provenance": "official",
+  "publicationAppendEnabled": false,
+  "publicationDate": 1780598412,
+  "publicationGroup": 18512480,
+  "publicationStage": "published",
+  "query": {},
+  "rights": [
+    "read"
+  ],
+  "rowsUpdatedAt": 1791312683,
+  "tableId": 20411269,
+  "tags": [
+    "public transit"
+  ],
+  "totalTimesRated": 0,
+  "viewCount": 26876,
+  "viewLastModified": 1791312507,
+  "viewType": "tabular"
+}

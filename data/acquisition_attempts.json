@@ -1,0 +1,110 @@
+{
+  "fta_downloads": [
+    {
+      "id": "major_time_series",
+      "url": "https://www.transit.dot.gov/sites/fta.dot.gov/files/2026-10/S%26S%20Time%20Series-June%202026-Major%20Only_261001.xlsx",
+      "attempted_at": "2026-10-11T10:24:49.230416+00:00",
+      "http_status": 403,
+      "status": "http_error",
+      "response_bytes": 531,
+      "response_sha256": "acfdecbc6919d25c199bc3ff653969b392ab5a88d4f81f198ac9707aef2ade18"
+    },
+    {
+      "id": "threshold_adjusted",
+      "url": "https://www.transit.dot.gov/sites/fta.dot.gov/files/2026-10/S%26S%20Time%20Series-June%202026_261001.xlsx",
+      "attempted_at": "2026-10-11T10:24:50.139610+00:00",
+      "http_status": 403,
+      "status": "http_error",
+      "response_bytes": 510,
+      "response_sha256": "1a12b1a1f56abe3894022b9679abb67bb22ec20310deaea95a4d8795ec1f3b8f"
+    },
+    {
+      "id": "raw_exposure",
+      "url": "https://www.transit.dot.gov/sites/fta.dot.gov/files/2026-10/August%202026%20Raw%20Monthly%20Ridership%20%28no%20adjustments%20or%20estimates%29_261001_0.xlsx",
+      "attempted_at": "2026-10-11T10:24:50.434302+00:00",
+      "http_status": 403,
+      "status": "http_error",
+      "response_bytes": 586,
+      "response_sha256": "1ca7ca0644f553bc16b9d885362efe087bf072a3b4d2e0ccab0c664842f3c54f"
+    },
+    {
+      "id": "complete_exposure_workbook",
+      "url": "https://www.transit.dot.gov/sites/fta.dot.gov/files/2026-10/August%202026%20Complete%20Monthly%20Ridership%20%28with%20adjustments%20and%20estimates%29_261001_0.xlsx",
+      "attempted_at": "2026-10-11T10:24:50.952292+00:00",
+      "http_status": 403,
+      "status": "http_error",
+      "response_bytes": 594,
+      "response_sha256": "ca2199270abba0b1454f1d6763b67a651554e85456ffbb7e64152d3d52a6eea2"
+    },
+    {
+      "id": "historical_major_2002_2007",
+      "url": "https://www.transit.dot.gov/sites/fta.dot.gov/files/2024-02/S%26S%20Time%20Series-2002-2007%20Static-Major%20Only.xlsx",
+      "attempted_at": "2026-10-11T10:24:52.251172+00:00",
+      "http_status": 403,
+      "status": "http_error",
+      "response_bytes": 531,
+      "response_sha256": "4b840379667e062bf8fb4ebb3f2abccb3f2ed62632a1a9eec80d31b9f95282cc"
+    },
+    {
+      "id": "historical_threshold_2002_2007",
+      "url": "https://www.transit.dot.gov/sites/fta.dot.gov/files/2024-02/S%26S%20Time%20Series-2002-2007%20Static_0.xlsx",
+      "attempted_at": "2026-10-11T10:24:52.976589+00:00",
+      "http_status": 403,
+      "status": "http_error",
+      "response_bytes": 516,
+      "response_sha256": "9c8dc60a1b05e44f37c6de8ccea60e0f50637352d24c7d86677eed8e7400b825"
+    },
+    {
+      "id": "manual_2024",
+      "url": "https://www.transit.dot.gov/sites/fta.dot.gov/files/2024-02/2024-Safety-and-Security-Policy-Manual_1-0.pdf",
+      "attempted_at": "2026-10-11T10:24:53.051173+00:00",
+      "http_status": 403,
+      "status": "http_error",
+      "response_bytes": 515,
+      "response_sha256": "880adaa0b25bb33d0174d9bbb7d70a8f9ba54158943c814364852171de013e15"
+    },
+    {
+      "id": "manual_2025",
+      "url": "https://www.transit.dot.gov/sites/fta.dot.gov/files/2025-11/2025%20Safety%20%26%20Security%20Manual_V1-1.pdf",
+      "attempted_at": "2026-10-11T10:24:53.120568+00:00",
+      "http_status": 403,
+      "status": "http_error",
+      "response_bytes": 517,
+      "response_sha256": "63d8a1f63113ac42173892300be8cd202b20949b864a4cecc7b8eb56b14b9ef2"
+    },
+    {
+      "id": "manual_2026",
+      "url": "https://www.transit.dot.gov/sites/fta.dot.gov/files/2026-05/2026%20Safety%20%26%20Security%20Manual%20V1.pdf",
+      "attempted_at": "2026-10-11T10:24:53.227408+00:00",
+      "http_status": 403,
+      "status": "http_error",
+      "response_bytes": 513,
+      "response_sha256": "bfcf8652739c27ce012c2d15eb3f599e05ed37bd0daf271b352c7e872db3b96b"
+    },
+    {
+      "id": "worker_assault_guide",
+      "url": "https://www.transit.dot.gov/sites/fta.dot.gov/files/2024-05/Assault-on-a-Transit-Worker-Guide-Full-Reporters.pdf",
+      "attempted_at": "2026-10-11T10:24:53.532917+00:00",
+      "http_status": 403,
+      "status": "http_error",
+      "response_bytes": 521,
+      "response_sha256": "706b3f29542cc76d4b3d75b200416a09c3c1f85bfdf68ae80947add8f71f3d14"
+    },
+    {
+      "id": "nonrail_quick_reference",
+      "url": "https://www.transit.dot.gov/sites/fta.dot.gov/files/2026-02/2026%20NTD-Non-Rail-Quick-Reference_01.pdf",
+      "attempted_at": "2026-10-11T10:24:54.316939+00:00",
+      "http_status": 403,
+      "status": "http_error",
+      "response_bytes": 507,
+      "response_sha256": "8df7b09771caa4e1a6f754e334a8e4946a6d5bc0e86255f4fdfe8d5cf34a929b"
+    }
+  ],
+  "portal_rejected_full_major_export": {
+    "expected_records": 116364,
+    "returned_records": 56628,
+    "status": "rejected_not_an_input",
+    "resolution": "Accepted complete paginated export after identity and count reconciliation"
+  },
+  "historical_revisions": "No overlapping published release pair acquired; no measured revision rate claimed."
+}

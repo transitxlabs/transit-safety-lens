@@ -1,0 +1,167 @@
+{
+  "baselines": [
+    {
+      "added": 0,
+      "baseline": "raw_count",
+      "comparisons": 893,
+      "credible_flags": 55,
+      "direction": "rate increase",
+      "dropped": 296,
+      "kept": 55,
+      "naive_flags": 351,
+      "opposite_direction": 0
+    },
+    {
+      "added": 0,
+      "baseline": "raw_count",
+      "comparisons": 893,
+      "credible_flags": 18,
+      "direction": "rate decrease",
+      "dropped": 206,
+      "kept": 18,
+      "naive_flags": 224,
+      "opposite_direction": 0
+    },
+    {
+      "added": 0,
+      "baseline": "raw_rate",
+      "comparisons": 893,
+      "credible_flags": 55,
+      "direction": "rate increase",
+      "dropped": 319,
+      "kept": 55,
+      "naive_flags": 374,
+      "opposite_direction": 0
+    },
+    {
+      "added": 0,
+      "baseline": "raw_rate",
+      "comparisons": 893,
+      "credible_flags": 18,
+      "direction": "rate decrease",
+      "dropped": 243,
+      "kept": 18,
+      "naive_flags": 261,
+      "opposite_direction": 0
+    }
+  ],
+  "full_record_inventory": [
+    {
+      "accepted": 193527,
+      "dataset": "modal",
+      "earliest": "2014-01-01",
+      "keys": "ntd_id|mode|tos|date",
+      "latest": "2026-08-01",
+      "records": 193539,
+      "rejected": 12,
+      "unique_agencies": 636
+    },
+    {
+      "accepted": 116364,
+      "dataset": "major",
+      "earliest": "2014-01-01",
+      "keys": "ntd_id|year|incident_number",
+      "latest": "2026-06-01",
+      "records": 116364,
+      "rejected": 0,
+      "unique_agencies": 535
+    },
+    {
+      "accepted": 107932,
+      "dataset": "nonmajor",
+      "earliest": "2008-01-01",
+      "keys": "ntd_id|mode|tos|date|eventtype|location|sftsecfl",
+      "latest": "2026-06-01",
+      "records": 112896,
+      "rejected": 4964,
+      "unique_agencies": 647
+    },
+    {
+      "accepted": 3260,
+      "dataset": "fra_security",
+      "earliest": "2007-04-01",
+      "keys": "ntd_id|year|incident_number",
+      "latest": "2026-07-01",
+      "records": 3260,
+      "rejected": 0,
+      "unique_agencies": 29
+    },
+    {
+      "accepted": 372777,
+      "dataset": "exposure",
+      "earliest": "2002-01-01",
+      "keys": "ntd_id|mode|tos|date",
+      "latest": "2026-08-01",
+      "records": 372801,
+      "rejected": 24,
+      "unique_agencies": 835
+    }
+  ],
+  "heldout": {
+    "calibration_status": "below_nominal_coverage",
+    "coverage": 0.9070904645476773,
+    "covered": 742,
+    "eligible": 818,
+    "flagged": 64,
+    "heldout_year": 2022,
+    "persisted": 57,
+    "persistence": 0.890625,
+    "training_comparison_years": [
+      2020,
+      2021
+    ]
+  },
+  "joins": [
+    {
+      "dataset": "major",
+      "lost": 0,
+      "matched": 116364,
+      "source_records": 116364
+    },
+    {
+      "dataset": "nonmajor",
+      "lost": 44231,
+      "matched": 68665,
+      "source_records": 112896
+    },
+    {
+      "dataset": "fra_security",
+      "lost": 3260,
+      "matched": 0,
+      "source_records": 3260
+    },
+    {
+      "dataset": "exposure",
+      "lost": 179533,
+      "matched": 193268,
+      "source_records": 372801
+    }
+  ],
+  "late_reporting": {
+    "actual_submission_timestamps_available": false,
+    "status": "publication_missingness_proxy_only"
+  },
+  "model": {
+    "comparison_years": [
+      2021,
+      2022
+    ],
+    "conditional_empirical_hyperparameters": true,
+    "eligible_comparisons": 893,
+    "flags": 73,
+    "interval_level": 0.95,
+    "posterior_expected_false_sign_fraction": 0.007452267841602271,
+    "rate_decrease": 18,
+    "rate_increase": 55,
+    "target": 0.05,
+    "training_year": 2019,
+    "unavailable_comparisons": 663
+  },
+  "revisions": {
+    "compared_pairs": 0,
+    "compared_releases": 0,
+    "rate": null,
+    "status": "unavailable_without_two_published_releases"
+  },
+  "status": "local_research_release_check_required"
+}

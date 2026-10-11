@@ -1,0 +1,310 @@
+{
+  "assetType": "dataset",
+  "attribution": "Federal Transit Administration",
+  "attributionLink": "https://www.transit.dot.gov/ntd/data-product/monthly-module-adjusted-data-release",
+  "averageRating": 0,
+  "category": "Public Transit",
+  "columns": [
+    {
+      "dataTypeName": "text",
+      "description": "A unique FTA-assigned number (NTD ID) that each transit agency must have before filing a report.",
+      "fieldName": "ntd_id",
+      "format": {
+        "decimalSeparator": ".",
+        "groupSeparator": ","
+      },
+      "id": 609636951,
+      "name": "NTD ID",
+      "position": 1,
+      "renderTypeName": "text",
+      "tableColumnId": 157386276
+    },
+    {
+      "dataTypeName": "text",
+      "description": "Deprecated form of NTD ID used prior to 2019",
+      "fieldName": "legacy_ntd_id",
+      "format": {
+        "decimalSeparator": ".",
+        "groupSeparator": ","
+      },
+      "id": 609636952,
+      "name": "Legacy NTD ID",
+      "position": 2,
+      "renderTypeName": "text",
+      "tableColumnId": 157386277
+    },
+    {
+      "dataTypeName": "text",
+      "description": "The Transit Property\u2019s legal name",
+      "fieldName": "agency",
+      "format": {},
+      "id": 609636953,
+      "name": "Agency",
+      "position": 3,
+      "renderTypeName": "text",
+      "tableColumnId": 157386265
+    },
+    {
+      "dataTypeName": "text",
+      "description": "Indicates whether a mode and type of service has ended (inactive) or is continuing (active) as recorded in the NTD at the time of publication of this file.",
+      "fieldName": "mode_type_of_service_status",
+      "format": {},
+      "id": 609636954,
+      "name": "Mode/Type of Service Status",
+      "position": 4,
+      "renderTypeName": "text",
+      "tableColumnId": 157386266
+    },
+    {
+      "dataTypeName": "text",
+      "description": "Indicates the agency's reporter type (Building Reporter, Full Reporter, Reduced Asset Reporter,  Rural Reporter, Separate Service Reporter or Small System Waiver Reporter) as of their most recent report year.",
+      "fieldName": "reporter_type",
+      "format": {},
+      "id": 609636955,
+      "name": "Reporter Type",
+      "position": 5,
+      "renderTypeName": "text",
+      "tableColumnId": 157386267
+    },
+    {
+      "dataTypeName": "text",
+      "description": "The Census Bereau's Urban Area Census Code (UACE). This five-digit code uniquely identifies an urban area and remains unchanged from census to census.",
+      "fieldName": "uace_cd",
+      "format": {
+        "decimalSeparator": ".",
+        "groupSeparator": ","
+      },
+      "id": 609636956,
+      "name": "UACE CD",
+      "position": 6,
+      "renderTypeName": "text",
+      "tableColumnId": 157557243
+    },
+    {
+      "dataTypeName": "text",
+      "description": "The name of the Census-designated Urbanized Area, from the most recent census, in which the system primarily operates.",
+      "fieldName": "uza_name",
+      "format": {},
+      "id": 609636957,
+      "name": "UZA Name",
+      "position": 7,
+      "renderTypeName": "text",
+      "tableColumnId": 157386269
+    },
+    {
+      "dataTypeName": "text",
+      "description": "A system for carrying transit passengers described by specific right-of-way (ROW), technology and operational features. ",
+      "fieldName": "mode",
+      "format": {},
+      "id": 609636958,
+      "name": "Mode",
+      "position": 8,
+      "renderTypeName": "text",
+      "tableColumnId": 157386270
+    },
+    {
+      "dataTypeName": "text",
+      "description": "Describes how public transportation services are provided by the transit agency: directly operated (DO) or purchased transportation (PT) which also includes from Taxi Operators and Transportation Network Companies (TX, TN) services.",
+      "fieldName": "tos",
+      "format": {},
+      "id": 609636959,
+      "name": "TOS",
+      "position": 9,
+      "renderTypeName": "text",
+      "tableColumnId": 157386271
+    },
+    {
+      "dataTypeName": "text",
+      "description": " A grouping of modes based upon whether the mode operates on rail, is a bus mode (includes demand response services), is ferry boat service or other.",
+      "fieldName": "_3_mode",
+      "format": {},
+      "id": 609636960,
+      "name": "3 Mode",
+      "position": 10,
+      "renderTypeName": "text",
+      "tableColumnId": 157386272
+    },
+    {
+      "dataTypeName": "calendar_date",
+      "description": "The month (in Month-Year format) for which UPT, VRM, VRH and VOM was reported by the agency for the given Mode and TOS.",
+      "fieldName": "date",
+      "format": {
+        "view": "date_monthy"
+      },
+      "id": 609636961,
+      "name": "Date",
+      "position": 11,
+      "renderTypeName": "calendar_date",
+      "tableColumnId": 157386273
+    },
+    {
+      "dataTypeName": "number",
+      "description": "The number of passengers who board public transportation vehicles. Passengers are counted each time they board vehicles no matter how many vehicles they use to travel from their origin to their destination. ",
+      "fieldName": "upt",
+      "format": {
+        "decimalSeparator": ".",
+        "groupSeparator": ","
+      },
+      "id": 609636962,
+      "name": "UPT",
+      "position": 12,
+      "renderTypeName": "number",
+      "tableColumnId": 157386275
+    },
+    {
+      "dataTypeName": "number",
+      "description": "The number of revenue vehicles operated to meet the maximum service requirement for the respective month.",
+      "fieldName": "voms",
+      "format": {},
+      "id": 609636963,
+      "name": "VOMS",
+      "position": 13,
+      "renderTypeName": "number",
+      "tableColumnId": 157754813
+    },
+    {
+      "dataTypeName": "number",
+      "description": "The hours that vehicles are scheduled to or actually travel while in revenue service. Vehicle revenue hours include layovers and driver recovery time.",
+      "fieldName": "vrh",
+      "format": {},
+      "id": 609636964,
+      "name": "VRH",
+      "position": 14,
+      "renderTypeName": "number",
+      "tableColumnId": 157754812
+    },
+    {
+      "dataTypeName": "number",
+      "description": "The miles that vehicles are scheduled to or actually travel while in revenue service",
+      "fieldName": "vrm",
+      "format": {},
+      "id": 609636965,
+      "name": "VRM",
+      "position": 15,
+      "renderTypeName": "number",
+      "tableColumnId": 157754811
+    },
+    {
+      "dataTypeName": "text",
+      "description": "Unique row identifier derived by concatenating agency, mode, TOS, UZA, status, reporter type and date columns.",
+      "fieldName": "agency_mode_tos_date",
+      "format": {},
+      "id": 609636966,
+      "name": "Agency Mode TOS Date",
+      "position": 16,
+      "renderTypeName": "text",
+      "tableColumnId": 157557229
+    },
+    {
+      "dataTypeName": "text",
+      "description": "State that the headquarters of the NTD Reporter is located in (not necessarily reflective of the entire extent of their transit operations, which may overlap multiple states).",
+      "fieldName": "state",
+      "format": {},
+      "id": 609636967,
+      "name": "State",
+      "position": 17,
+      "renderTypeName": "text",
+      "tableColumnId": 158324624
+    },
+    {
+      "dataTypeName": "text",
+      "description": "The FTA region in which the reporter is located.",
+      "fieldName": "fta_region",
+      "format": {},
+      "id": 609636968,
+      "name": "FTA Region",
+      "position": 18,
+      "renderTypeName": "text",
+      "tableColumnId": 158324625
+    }
+  ],
+  "createdAt": 1741985194,
+  "description": "The Monthly module includes a limited set of key indicators reported by transit properties. Data is reported on a monthly basis, by mode and type of service, for a fiscal year.\n\nThe four data items included are:\n\n1.\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 Unlinked Passenger Trips \n2.\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 Vehicle Revenue Miles\n3.\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 Vehicle Revenue Hours\n4.\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 Vehicles Operated in Maximum Service (Peak Vehicles)\n\nThis dataset presents these values in their own column in a long format (each row of the file is an individual Agency/Mode/TOS/Date). The data source is shared with the static Excel file hosted on the FTA website here: https://www.transit.dot.gov/ntd/data-product/monthly-module-adjusted-data-release. This dataset differs from the static Excel file in its formatting as well as being updated weekly, to capture data as it is reported and validated for a given publication month.\n\nMode Codes:\nAlaska Railroad (AR)\nCable Car (CC)\nCommuter Rail (CR)\nHeavy Rail (HR)\nHybrid Rail (YR)\nInclined Plane (IP)\nLight Rail (LR)\nMonorail/Automated Guideway (MG)\nStreetcar Rail (SR)\nAerial Tramway (TR)\nCommuter Bus (CB)\nBus (MB)\nBus Rapid Transit (RB)\nDemand Response (DR)\nFerryboat (FB)\nJitney (JT)\nP\u00fablico (PB)\nTrolleybus (TB)\nVanpool (VP)\n\n\nMode and Type of Service Changes and Impacts on this Time Series:\n\n\"Monthly data are reported by mode and type of service. From 2002 through 2011, there were 16 modes in the NTD. NTD monthly ridership data is now reported according to refined modal classifications. Service previously reported as bus (MB) now may be reported as either MB, Commuter Bus (CB), or Bus Rapid Transit (RB). Additionally, service previously categorized as Light Rail (LR) now may be reported as LR or Streetcar (SR). \n\nSimilarly, Types of Service were refined in Report Year 2019. From 2002 - 2018, there were two types of service: Directly Operated (DO) and Purchased Transportation (PT). As of 2019, Purchased Transportation is now classified such that agencies report the purchased transportation based on the type of contractor: general third party (PT), taxicab operator (TX), or transportation network company (TN). FTA concurrently removed the \"\"Demand Response Taxi\"\" (DT/PT) mode in 2019. FTA now considers all such service as Demand Response (DR) with Taxi (TX) type of service and this time series has been updated to reflect this change. \"\t\t\t\t\t\n\nFor more information on this dataset, please consult the full Read Me in the attached file.",
+  "diciBackend": false,
+  "displayType": "table",
+  "domainCName": "data.transportation.gov",
+  "downloadCount": 6923,
+  "flags": [
+    "default",
+    "federated",
+    "internalToPublicFederatedView",
+    "ownerMayBeContacted",
+    "restorable",
+    "restorePossibleForType"
+  ],
+  "hideFromCatalog": false,
+  "hideFromDataJson": false,
+  "id": "8bui-9xvu",
+  "license": {
+    "name": "Public Domain U.S. Government",
+    "termsLink": "https://www.usa.gov/government-works"
+  },
+  "licenseId": "USGOV_WORKS",
+  "locked": false,
+  "metadata": {
+    "attachments": [
+      {
+        "assetId": "0a681268-644d-4948-ae96-6745ed7ca161",
+        "filename": "Complete Monthly Ridership Read Me.docx",
+        "name": "Complete Monthly Ridership Read Me.docx"
+      }
+    ],
+    "availableDisplayTypes": [
+      "table",
+      "fatrow",
+      "page"
+    ],
+    "custom_fields": {
+      "Common Core": {
+        "Bureau Code": "021:36",
+        "Contact Email": "NTDHelp@dot.gov",
+        "Contact Name": "NTD Program Support",
+        "License": "http://www.usa.gov/publicdomain/label/1.0/",
+        "Program Code": "021:000",
+        "Publisher": "Federal Transit Administration",
+        "Update Frequency\t": "R/P1M"
+      },
+      "Common Core 3": {
+        "Bureau Code": "021:36",
+        "Contact Email": "NTDHelp@dot.gov",
+        "Contact Name": "NTD Program Support",
+        "Program Code": "021:000",
+        "Publisher": "Federal Transit Administration"
+      }
+    },
+    "rowIdentifier": 609636966,
+    "rowLabel": "Agency/Mode/Service/Month/Service"
+  },
+  "name": "Complete Monthly Ridership (with Adjustments and Estimates)",
+  "newBackend": true,
+  "numberOfComments": 0,
+  "oid": 41305101,
+  "provenance": "official",
+  "publicationAppendEnabled": false,
+  "publicationDate": 1746552295,
+  "publicationGroup": 19811385,
+  "publicationStage": "published",
+  "query": {},
+  "rights": [
+    "read"
+  ],
+  "rowIdentifierColumnId": 609636966,
+  "rowsUpdatedAt": 1790866673,
+  "tableId": 19881434,
+  "tags": [
+    "ntd",
+    "national transit database",
+    "monthly ridership",
+    "ridership",
+    "upt",
+    "vrm",
+    "voms",
+    "vrh",
+    "transit",
+    "public transit"
+  ],
+  "totalTimesRated": 0,
+  "viewCount": 8288,
+  "viewLastModified": 1788386750,
+  "viewType": "tabular"
+}

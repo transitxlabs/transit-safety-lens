@@ -1,0 +1,1529 @@
+{
+  "assetType": "dataset",
+  "attribution": "Federal Transit Administration",
+  "attributionLink": "https://www.transit.dot.gov/ntd/ntd-data",
+  "averageRating": 0,
+  "category": "Public Transit",
+  "columns": [
+    {
+      "dataTypeName": "text",
+      "description": "A five-digit identifying number for each agency used in the current NTD system.",
+      "fieldName": "_5_digit_ntd_id",
+      "format": {
+        "noCommas": "true"
+      },
+      "id": 634684753,
+      "name": "NTD ID",
+      "position": 1,
+      "renderTypeName": "text",
+      "tableColumnId": 151318605
+    },
+    {
+      "dataTypeName": "text",
+      "description": "The legal name of the entity reporting to the NTD.",
+      "fieldName": "agency",
+      "format": {},
+      "id": 634684754,
+      "name": "Agency",
+      "position": 2,
+      "renderTypeName": "text",
+      "tableColumnId": 64426308
+    },
+    {
+      "dataTypeName": "text",
+      "description": "The Census Bureau's Urban Area Census Code (UACE). This five-digit code uniquely identifies an urban area and remains unchanged from census to census.",
+      "fieldName": "uace_code",
+      "format": {},
+      "id": 634684755,
+      "name": "Primary UZA UACE Code",
+      "position": 3,
+      "renderTypeName": "text",
+      "tableColumnId": 147808591
+    },
+    {
+      "dataTypeName": "text",
+      "description": "Groups modes based on whether they are:  Rail, Running Non-Rail Surface Transportation, or Ferryboat.",
+      "fieldName": "rail_bus_ferry",
+      "format": {},
+      "id": 634684756,
+      "name": "Rail/Bus/Ferry",
+      "position": 4,
+      "renderTypeName": "text",
+      "tableColumnId": 143491079
+    },
+    {
+      "dataTypeName": "text",
+      "description": "A system for carrying transit passengers described by specific right-of-way (ROW), technology and operational features.",
+      "fieldName": "mode_name",
+      "format": {},
+      "id": 634684757,
+      "name": "Mode Name",
+      "position": 5,
+      "renderTypeName": "text",
+      "tableColumnId": 143491100
+    },
+    {
+      "dataTypeName": "text",
+      "description": "Abbreviation of mode name.",
+      "fieldName": "mode",
+      "format": {},
+      "id": 634684758,
+      "name": "Mode",
+      "position": 6,
+      "renderTypeName": "text",
+      "tableColumnId": 64426310
+    },
+    {
+      "dataTypeName": "text",
+      "description": "",
+      "fieldName": "consolidated_mode_name",
+      "format": {},
+      "id": 634684759,
+      "name": "Consolidated Mode Name",
+      "position": 7,
+      "renderTypeName": "text",
+      "tableColumnId": 163826381
+    },
+    {
+      "dataTypeName": "text",
+      "description": "Abbreviation for \"Type of Service.\" Describes how public transportation services are provided by the transit agency: directly operated (DO) or purchased transportation which also includes from Taxi Operators and Transportation Network Companies (PT, TX, TN) services.",
+      "fieldName": "type_of_service",
+      "format": {},
+      "id": 634684760,
+      "name": "TOS",
+      "position": 8,
+      "renderTypeName": "text",
+      "tableColumnId": 64426311
+    },
+    {
+      "dataTypeName": "checkbox",
+      "description": "Flag that identifies whether the mode is fixed-route or non-fixed route.",
+      "fieldName": "fixed_route_flag",
+      "format": {},
+      "id": 634684761,
+      "name": "Fixed Route Flag",
+      "position": 9,
+      "renderTypeName": "checkbox",
+      "tableColumnId": 143913939,
+      "width": 267
+    },
+    {
+      "dataTypeName": "checkbox",
+      "description": "Separates Rail (True) from Non-Rail (False) modes.",
+      "fieldName": "rail_y_n",
+      "format": {},
+      "id": 634685045,
+      "name": "Rail (True/False)",
+      "position": 10,
+      "renderTypeName": "checkbox",
+      "tableColumnId": 168357634
+    },
+    {
+      "dataTypeName": "number",
+      "description": "The calendar year in which the event occurred.",
+      "fieldName": "year",
+      "format": {
+        "noCommas": "true"
+      },
+      "id": 634684762,
+      "name": "Year",
+      "position": 11,
+      "renderTypeName": "number",
+      "tableColumnId": 143499264
+    },
+    {
+      "dataTypeName": "text",
+      "description": "A 2000 character field used to describe the details of the event.",
+      "fieldName": "incident_description",
+      "format": {},
+      "id": 634684763,
+      "name": "Event Description",
+      "position": 12,
+      "renderTypeName": "text",
+      "tableColumnId": 143491605
+    },
+    {
+      "dataTypeName": "number",
+      "description": "A unique system-generated identification number for each Major Safety Event.",
+      "fieldName": "incident_number",
+      "format": {
+        "noCommas": "true"
+      },
+      "id": 634684764,
+      "name": "Incident Number",
+      "position": 13,
+      "renderTypeName": "number",
+      "tableColumnId": 143499218
+    },
+    {
+      "dataTypeName": "calendar_date",
+      "description": "The date on which the event occurred.",
+      "fieldName": "incident_date",
+      "format": {
+        "view": "date_ymonthd"
+      },
+      "id": 634684765,
+      "name": "Event Date",
+      "position": 14,
+      "renderTypeName": "calendar_date",
+      "tableColumnId": 151306658
+    },
+    {
+      "dataTypeName": "text",
+      "description": "The actual time of day the event occurred.",
+      "fieldName": "incident_time",
+      "format": {},
+      "id": 634684766,
+      "name": "Event Time",
+      "position": 15,
+      "renderTypeName": "text",
+      "tableColumnId": 86282791
+    },
+    {
+      "dataTypeName": "text",
+      "description": "The type of event that occurred. Collision with person events are transformed from a collision type based on the following circumstances: \u201cAttempted Suicide\u201d if the person survives or \u201cSuicide\u201d, if they pass away. Collision with person events where the person was pushed in front of an oncoming transit vehicle is [Assault or Homicide] on [person type]. Derailment events are transformed to \u201cYard Derailment\u201d or \u201cMain Line Derailment\u201d based on location of derailment. Non-transit collisions involving non-revenue property (events where agency property other than revenue vehicles were involved) are transformed to \u201cOther\u201d.",
+      "fieldName": "event_type",
+      "format": {},
+      "id": 634684767,
+      "name": "Event Type",
+      "position": 16,
+      "renderTypeName": "text",
+      "tableColumnId": 64426320
+    },
+    {
+      "dataTypeName": "text",
+      "description": "A derived column to allow users to filter based on broader event type (e.g., Collision, Derailment, Assault).",
+      "fieldName": "event_type_group",
+      "format": {},
+      "id": 634684769,
+      "name": "Event Type Group",
+      "position": 18,
+      "renderTypeName": "text",
+      "tableColumnId": 147808595
+    },
+    {
+      "dataTypeName": "text",
+      "description": "Indicates whether the person assaulted is a transit operator, other transit worker, not a transit worker, or not specified. Only applies to assaults.",
+      "fieldName": "assault_homicide_person_type_desc",
+      "format": {},
+      "id": 634684770,
+      "name": "Transit Worker Type",
+      "position": 19,
+      "renderTypeName": "text",
+      "tableColumnId": 147808594
+    },
+    {
+      "dataTypeName": "text",
+      "description": "Identifies the type of assault on a transit worker as physical, non-physical, or not specified. Only applies to assaults.",
+      "fieldName": "assault_homicide_type_desc",
+      "format": {},
+      "id": 634684771,
+      "name": "Transit Worker Assault Detail Type",
+      "position": 20,
+      "renderTypeName": "text",
+      "tableColumnId": 147808593
+    },
+    {
+      "dataTypeName": "checkbox",
+      "description": "When the value is True, the event is reported as an Assault on Transit Worker of any type. Otherwise, the value is false. Note, the value will appear as False for all events prior to 2023.",
+      "fieldName": "assault_homicide_transit_worker_flag",
+      "format": {},
+      "id": 634684772,
+      "name": "Transit Worker Assault Flag",
+      "position": 21,
+      "renderTypeName": "checkbox",
+      "tableColumnId": 147808592
+    },
+    {
+      "dataTypeName": "text",
+      "description": "Text explanation from the 'Please describe\" box used when \"Other Security Event \" is selected ",
+      "fieldName": "other_event_type_description",
+      "format": {},
+      "id": 634684773,
+      "name": "Other Event Type Description",
+      "position": 22,
+      "renderTypeName": "text",
+      "tableColumnId": 64426321
+    },
+    {
+      "dataTypeName": "text",
+      "description": "Overall category of the event type",
+      "fieldName": "event_category",
+      "format": {},
+      "id": 634684774,
+      "name": "Event Category",
+      "position": 23,
+      "renderTypeName": "text",
+      "tableColumnId": 143491078
+    },
+    {
+      "dataTypeName": "text",
+      "description": "Identifier of events involving a runaway train.  [A train which is no longer under the control of a driver regardless of whether the operator is physically on the vehicle at the time. This is limited to revenue vehicles.]",
+      "fieldName": "runaway_train_flag",
+      "format": {},
+      "id": 634684775,
+      "name": "Runaway Train Flag",
+      "position": 24,
+      "renderTypeName": "text",
+      "tableColumnId": 143491091
+    },
+    {
+      "dataTypeName": "text",
+      "description": "Identifier of a Safety (SFT) or (Security Event). [Safety Event: A collision, derailment, fire, hazardous material spill, act of nature (Act of God), evacuation, or OSONOC occurring on transit right-of-way, in a transit revenue facility, in a transit maintenance facility, or involving a transit revenue vehicle and meeting established NTD thresholds.] OR [Security event: An occurrence of a bomb threat, bombing, arson, hijacking, sabotage, cyber security event, assault, robbery, rape, burglary, suicide, attempted suicide (not involving a transit vehicle), larceny, theft, vandalism, homicide, CBR (chemical/biological/radiological) or nuclear release, or other event.]",
+      "fieldName": "safety_security",
+      "format": {},
+      "id": 634684776,
+      "name": "Safety/Security",
+      "position": 25,
+      "renderTypeName": "text",
+      "tableColumnId": 64426322
+    },
+    {
+      "dataTypeName": "text",
+      "description": "Identifies what the transit vehicle collided with: Motor Vehicle, Non-Transit Motor Vehicle, Non-Rail Transit Vehicle, Rail Transit Vehicle/Rail Passenger Train \u2013 Revenue Service, Rail Transit Vehicle/Rail Passenger Train \u2013 Not in Revenue Service, Rail Transit Vehicle/Rail Transit Maintenance or Service Vehicle on the rail fixed guideway, Person, Animal, Fixed Object, Transit vehicle, Vessel, Dock/Terminal center, Non-revenue vehicle, Other.",
+      "fieldName": "collision_with",
+      "format": {},
+      "id": 634684777,
+      "name": "Collision With",
+      "position": 26,
+      "renderTypeName": "text",
+      "tableColumnId": 64426323
+    },
+    {
+      "dataTypeName": "number",
+      "description": "Non-rail mode: The estimated dollar value of all property that is damaged in a Reportable Event. This includes transit-owned property and other vehicles and property involved in the event that are not owned by the transit agency (excludes personal property such as cell phones and computers). Property damage also includes the cost of clearing wreckage. ",
+      "fieldName": "property_damage",
+      "format": {},
+      "id": 634684779,
+      "name": "Property Damage",
+      "position": 28,
+      "renderTypeName": "number",
+      "tableColumnId": 143499235
+    },
+    {
+      "dataTypeName": "text",
+      "description": "When a value is reported, this indicates Substantial Damage, which is defined as damage to transit or non-transit property including vehicles, facilities, equipment, rolling stock, or infrastructure that disrupts the operations of the rail transit agency and adversely affects the structural strength, performance, or operating characteristics of the property, requiring towing, rescue, on-site maintenance, or immediate removal prior to safe operation. ",
+      "fieldName": "property_damage_type",
+      "format": {},
+      "id": 634684780,
+      "name": "Substantial Property Damage Type",
+      "position": 29,
+      "renderTypeName": "text",
+      "tableColumnId": 143491103
+    },
+    {
+      "dataTypeName": "checkbox",
+      "description": "Flag indicating that damage to a rail transit vehicle resulted from a collision and prevented the vehicle from operating under its own power.",
+      "fieldName": "disabling_damage_flag",
+      "format": {},
+      "id": 634684781,
+      "name": "Disabling Damage Flag",
+      "position": 30,
+      "renderTypeName": "checkbox",
+      "tableColumnId": 167097606
+    },
+    {
+      "dataTypeName": "number",
+      "description": "Total number of involved injuries as a result of the event. ",
+      "fieldName": "total_injuries",
+      "format": {},
+      "id": 634684782,
+      "name": "Total Injuries",
+      "position": 31,
+      "renderTypeName": "number",
+      "tableColumnId": 143499219
+    },
+    {
+      "dataTypeName": "number",
+      "description": "Total number of involved fatalities as a result of the event",
+      "fieldName": "total_fatalities",
+      "format": {},
+      "id": 634684783,
+      "name": "Total Fatalities",
+      "position": 32,
+      "renderTypeName": "number",
+      "tableColumnId": 143496860
+    },
+    {
+      "dataTypeName": "text",
+      "description": "Identifier of collisions involving towing away from the scene for a transit roadway vehicle or other non-transit roadway vehicle that incurred disabling damage as a result of a collision.",
+      "fieldName": "towed_y_n",
+      "format": {},
+      "id": 634684784,
+      "name": "Towed (Y/N)",
+      "position": 33,
+      "renderTypeName": "text",
+      "tableColumnId": 64426330
+    },
+    {
+      "dataTypeName": "number",
+      "description": "Identifies the number of transit vehicles involved in the event.",
+      "fieldName": "number_of_transit_vehicles",
+      "format": {},
+      "id": 634684785,
+      "name": "Number of Transit Vehicles Involved",
+      "position": 34,
+      "renderTypeName": "number",
+      "tableColumnId": 143499274
+    },
+    {
+      "dataTypeName": "number",
+      "description": "Identifies the number of non-transit vehicles involved in the event.",
+      "fieldName": "number_of_vehicles_involved",
+      "format": {},
+      "id": 634684786,
+      "name": "Number of Non-Transit Vehicles Involved",
+      "position": 35,
+      "renderTypeName": "number",
+      "tableColumnId": 143499230
+    },
+    {
+      "dataTypeName": "number",
+      "description": "The number of rail cars on transit vehicle consists involved in the event.",
+      "fieldName": "number_of_cars_on_involved_transit_vehicles",
+      "format": {},
+      "id": 634684787,
+      "name": "Number of Cars on Involved Transit Vehicles",
+      "position": 36,
+      "renderTypeName": "number",
+      "tableColumnId": 155407475
+    },
+    {
+      "dataTypeName": "number",
+      "description": "The number of cars that derailed during the event.",
+      "fieldName": "derailed_cars_count",
+      "format": {},
+      "id": 634684788,
+      "name": "Number of Derailed Cars on Involved Transit Vehicles",
+      "position": 37,
+      "renderTypeName": "number",
+      "tableColumnId": 155407474
+    },
+    {
+      "dataTypeName": "text",
+      "description": "Location of the event",
+      "fieldName": "location_type",
+      "format": {},
+      "id": 634684789,
+      "name": "Location Type",
+      "position": 38,
+      "renderTypeName": "text",
+      "tableColumnId": 64426332
+    },
+    {
+      "dataTypeName": "text",
+      "description": "A list of event locations in \"Act of God\" events.",
+      "fieldName": "multiple_locations_list",
+      "format": {},
+      "id": 634684790,
+      "name": "Multiple Locations List",
+      "position": 39,
+      "renderTypeName": "text",
+      "tableColumnId": 156825351
+    },
+    {
+      "dataTypeName": "text",
+      "description": "Identifies the exact or approximate address or location of the event.",
+      "fieldName": "approximate_address",
+      "format": {},
+      "id": 634684791,
+      "name": "Approximate Address",
+      "position": 40,
+      "renderTypeName": "text",
+      "tableColumnId": 143491099
+    },
+    {
+      "dataTypeName": "number",
+      "description": "The geographic coordinate that specifies the north\u2013south position of a point on the Earth's surface. NTD requires a minimum of 4 decimal places, and if 7 decimals are not provided, the NTD systems fills to 7 decimals.",
+      "fieldName": "latitude",
+      "format": {},
+      "id": 634684792,
+      "name": "Latitude",
+      "position": 41,
+      "renderTypeName": "number",
+      "tableColumnId": 143603815
+    },
+    {
+      "dataTypeName": "number",
+      "description": "The geographic coordinate that specifies the east\u2013west position of a point on the Earth's surface.NTD requires a minimum of 4 decimal places, and if 7 decimals are not provided, the NTD systems fills to 7 decimals.",
+      "fieldName": "longitude",
+      "format": {},
+      "id": 634684793,
+      "name": "Longitude",
+      "position": 42,
+      "renderTypeName": "number",
+      "tableColumnId": 143603816
+    },
+    {
+      "dataTypeName": "point",
+      "description": "This is a point field containing the georeference for the location of the event (combines and formats Latitude and Longitude).",
+      "fieldName": "latlon",
+      "format": {},
+      "id": 634684794,
+      "name": "LatLon",
+      "position": 43,
+      "renderTypeName": "point",
+      "tableColumnId": 147340590
+    },
+    {
+      "dataTypeName": "checkbox",
+      "description": "Identifies if persons were evacuated from a transit facility or vehicle (True) or not (False) during the event.",
+      "fieldName": "evacuation",
+      "format": {},
+      "id": 634684795,
+      "name": "Evacuation",
+      "position": 44,
+      "renderTypeName": "checkbox",
+      "tableColumnId": 155407473
+    },
+    {
+      "dataTypeName": "text",
+      "description": "Identifier of events involving an evacuation for life-safety reasons. [A reportable evacuation is a condition that occurs when persons depart from transit vehicles or facilities.]",
+      "fieldName": "life_safety_y_n",
+      "format": {},
+      "id": 634684796,
+      "name": "Evacuation for Life Safety (Y/N)",
+      "position": 45,
+      "renderTypeName": "text",
+      "tableColumnId": 64426328
+    },
+    {
+      "dataTypeName": "text",
+      "description": "Identifies if the evacuation reported was to a controlled right-of-way (True) nor not (False).",
+      "fieldName": "evac_to_right_of_way",
+      "format": {},
+      "id": 634684797,
+      "name": "Evacuation to Right-of-Way",
+      "position": 46,
+      "renderTypeName": "text",
+      "tableColumnId": 155407472
+    },
+    {
+      "dataTypeName": "text",
+      "description": "The details of the evacuation.  [A reportable evacuation is a condition that occurs when persons depart from transit vehicles or facilities.  Evacuations to a location that may put passengers or patrons in imminent danger (such as controlled rail right-of-way) must also be reported.]",
+      "fieldName": "evacuation_comment",
+      "format": {},
+      "id": 634684798,
+      "name": "Evacuation Comment",
+      "position": 47,
+      "renderTypeName": "text",
+      "tableColumnId": 64426335
+    },
+    {
+      "dataTypeName": "text",
+      "description": "Identifies a self-evacuation, which occurs when people vacate transit property without direction from transit personnel or another authority.",
+      "fieldName": "self_evacuation_y_n",
+      "format": {},
+      "id": 634684799,
+      "name": "Self Evacuation (Y/N)",
+      "position": 48,
+      "renderTypeName": "text",
+      "tableColumnId": 64426336
+    },
+    {
+      "dataTypeName": "text",
+      "description": "Identifies what was evacuated.",
+      "fieldName": "evacuation_location",
+      "format": {},
+      "id": 634684800,
+      "name": "Evacuation Location",
+      "position": 49,
+      "renderTypeName": "text",
+      "tableColumnId": 64426337
+    },
+    {
+      "dataTypeName": "text",
+      "description": "Identifies the type of substance that caused the Hazardous Material Spill. [The spill or release of any amount of hazardous material that creates an imminent danger to life, health, or the environment and requires special attention be given to clean up the material. ]",
+      "fieldName": "hazmat_type",
+      "format": {},
+      "id": 634684801,
+      "name": "HazMat Type",
+      "position": 50,
+      "renderTypeName": "text",
+      "tableColumnId": 64426339
+    },
+    {
+      "dataTypeName": "text",
+      "description": "Text explanation from the 'Please describe\" box used when \"Other'' is selected for the \"Haz Mat Type\"",
+      "fieldName": "hazmat_type_description",
+      "format": {},
+      "id": 634684802,
+      "name": "HazMat Type Description",
+      "position": 51,
+      "renderTypeName": "text",
+      "tableColumnId": 64426340
+    },
+    {
+      "dataTypeName": "text",
+      "description": "Identifies the source of the fire. A fire is an uncontrolled combustion made evident by flame that requires suppression by equipment or personnel.",
+      "fieldName": "fire_type",
+      "format": {},
+      "id": 634684803,
+      "name": "Fire Type",
+      "position": 52,
+      "renderTypeName": "text",
+      "tableColumnId": 64426341
+    },
+    {
+      "dataTypeName": "text",
+      "description": "For vehicle fires, identifies the type of fuel used to power the vehicle.",
+      "fieldName": "fire_fuel",
+      "format": {},
+      "id": 634684804,
+      "name": "Fire Fuel",
+      "position": 53,
+      "renderTypeName": "text",
+      "tableColumnId": 64426342
+    },
+    {
+      "dataTypeName": "text",
+      "description": "Text explanation from the 'Please describe\" box used when \"Other'' is selected for the Fire Fuel",
+      "fieldName": "other_fire_fuel_description",
+      "format": {},
+      "id": 634684805,
+      "name": "Other Fire Fuel Description",
+      "position": 54,
+      "renderTypeName": "text",
+      "tableColumnId": 64426343
+    },
+    {
+      "dataTypeName": "text",
+      "description": "Identifies the weather at the time of the event.",
+      "fieldName": "weather",
+      "format": {},
+      "id": 634684806,
+      "name": "Weather",
+      "position": 55,
+      "renderTypeName": "text",
+      "tableColumnId": 64426344
+    },
+    {
+      "dataTypeName": "text",
+      "description": "Details for the weather at the time of the event.",
+      "fieldName": "weather_comment",
+      "format": {},
+      "id": 634684807,
+      "name": "Other Weather Comment",
+      "position": 56,
+      "renderTypeName": "text",
+      "tableColumnId": 156209671
+    },
+    {
+      "dataTypeName": "text",
+      "description": "Identifies the indoor or outdoor lighting conditions at the time of the collision or derailment.",
+      "fieldName": "lighting",
+      "format": {},
+      "id": 634684808,
+      "name": "Lighting",
+      "position": 57,
+      "renderTypeName": "text",
+      "tableColumnId": 64426346
+    },
+    {
+      "dataTypeName": "text",
+      "description": "Identifies the water current conditions at the time of the ferryboat collision",
+      "fieldName": "current_condition",
+      "format": {},
+      "id": 634684809,
+      "name": "Current Condition",
+      "position": 58,
+      "renderTypeName": "text",
+      "tableColumnId": 64426347
+    },
+    {
+      "dataTypeName": "text",
+      "description": "Identifies the tide conditions at the time of the ferryboat collision.",
+      "fieldName": "tide",
+      "format": {},
+      "id": 634684810,
+      "name": "Tide",
+      "position": 59,
+      "renderTypeName": "text",
+      "tableColumnId": 64426348
+    },
+    {
+      "dataTypeName": "text",
+      "description": "Identifies the roadway configuration at the scene of non-rail collision.",
+      "fieldName": "road_configuration",
+      "format": {},
+      "id": 634684811,
+      "name": "Road Configuration",
+      "position": 60,
+      "renderTypeName": "text",
+      "tableColumnId": 64426349
+    },
+    {
+      "dataTypeName": "text",
+      "description": "Identifies the railway configuration at the scene for derailments.",
+      "fieldName": "track_configuration",
+      "format": {},
+      "id": 634684812,
+      "name": "Track Configuration",
+      "position": 61,
+      "renderTypeName": "text",
+      "tableColumnId": 64426351
+    },
+    {
+      "dataTypeName": "text",
+      "description": "Identifies the pathway (roadway) conditions for a non-rail collision.",
+      "fieldName": "path_condition",
+      "format": {},
+      "id": 634684813,
+      "name": "Path Condition",
+      "position": 62,
+      "renderTypeName": "text",
+      "tableColumnId": 64426352
+    },
+    {
+      "dataTypeName": "text",
+      "description": "Identifies the rail alignment of the track on which the collision or derailment occurred.",
+      "fieldName": "rail_alignment",
+      "format": {},
+      "id": 634684814,
+      "name": "Rail Alignment",
+      "position": 63,
+      "renderTypeName": "text",
+      "tableColumnId": 64426353
+    },
+    {
+      "dataTypeName": "text",
+      "description": "Identifies the grade crossing control device used at the grade crossing for non-rail or rail collision or rail derailment.",
+      "fieldName": "rail_grade_crossing_control",
+      "format": {},
+      "id": 634684815,
+      "name": "Rail Grade Crossing Control",
+      "position": 64,
+      "renderTypeName": "text",
+      "tableColumnId": 64426354
+    },
+    {
+      "dataTypeName": "text",
+      "description": "Details for the grade crossing control device.",
+      "fieldName": "rail_grade_crossing_comment",
+      "format": {},
+      "id": 634684816,
+      "name": "Other Rail Grade Crossing Comment",
+      "position": 65,
+      "renderTypeName": "text",
+      "tableColumnId": 156209670
+    },
+    {
+      "dataTypeName": "text",
+      "description": "Identifies the right-of-way (ROW) conditions for non-rail or rail collision or rail derailment.",
+      "fieldName": "right_of_way_condition",
+      "format": {},
+      "id": 634684817,
+      "name": "Right of Way Condition",
+      "position": 66,
+      "renderTypeName": "text",
+      "tableColumnId": 64426356
+    },
+    {
+      "dataTypeName": "text",
+      "description": "Identifies the intersection control device located at the intersection for a non-rail collision or rail collision.",
+      "fieldName": "intersection",
+      "format": {},
+      "id": 634684818,
+      "name": "Intersection Control Device",
+      "position": 67,
+      "renderTypeName": "text",
+      "tableColumnId": 64426357
+    },
+    {
+      "dataTypeName": "text",
+      "description": "Identifies the service stop control device located at the service stop for a rail collision.",
+      "fieldName": "service_stop_control_device",
+      "format": {},
+      "id": 634684819,
+      "name": "Service Stop Control Device",
+      "position": 68,
+      "renderTypeName": "text",
+      "tableColumnId": 142092101
+    },
+    {
+      "dataTypeName": "text",
+      "description": "Identifies the operator's location relative to the transit vehicle during a runaway train event.",
+      "fieldName": "operator_location",
+      "format": {},
+      "id": 634684820,
+      "name": "Operator Location (Runaway Train)",
+      "position": 69,
+      "renderTypeName": "text",
+      "tableColumnId": 155407471
+    },
+    {
+      "dataTypeName": "text",
+      "description": "Identifies if the security event was intentional or not,",
+      "fieldName": "intentional_y_n",
+      "format": {},
+      "id": 634684821,
+      "name": "Intentional (Y/N)",
+      "position": 70,
+      "renderTypeName": "text",
+      "tableColumnId": 157433042
+    },
+    {
+      "dataTypeName": "text",
+      "description": "Identifies the non-rail, ferry, or rail vehicle action at the time of the collision or derailment. ",
+      "fieldName": "vehicle_action",
+      "format": {},
+      "id": 634684822,
+      "name": "Transit Vehicle Action",
+      "position": 71,
+      "renderTypeName": "text",
+      "tableColumnId": 64426360
+    },
+    {
+      "dataTypeName": "text",
+      "description": "Text explanation from the \"Please Describe\" box used when \"Other\" is selected for the Transit Vehicle Action.",
+      "fieldName": "action_type",
+      "format": {},
+      "id": 634684823,
+      "name": "Other Transit Vehicle Action Description",
+      "position": 72,
+      "renderTypeName": "text",
+      "tableColumnId": 64426362
+    },
+    {
+      "dataTypeName": "text",
+      "description": "",
+      "fieldName": "collision_impact_point",
+      "format": {},
+      "id": 634684824,
+      "name": "Collision Impact Point",
+      "position": 73,
+      "renderTypeName": "text",
+      "tableColumnId": 163826382
+    },
+    {
+      "dataTypeName": "text",
+      "description": "Identifies the other vehicle action at the time of the collision or derailment.",
+      "fieldName": "non_transit_vehicle_action_list",
+      "format": {},
+      "id": 634684825,
+      "name": "Non-Transit Vehicle Action List",
+      "position": 74,
+      "renderTypeName": "text",
+      "tableColumnId": 156825350
+    },
+    {
+      "dataTypeName": "text",
+      "description": "Identifies the type of rail derailment.",
+      "fieldName": "derailment_type",
+      "format": {},
+      "id": 634684826,
+      "name": "Derailment Type",
+      "position": 75,
+      "renderTypeName": "text",
+      "tableColumnId": 64426363
+    },
+    {
+      "dataTypeName": "text",
+      "description": "Identifies the number of transit (Y) and non-transit (N) vehicles involved in the event.",
+      "fieldName": "transit_y_n",
+      "format": {},
+      "id": 634684827,
+      "name": "Transit (Y/N)",
+      "position": 76,
+      "renderTypeName": "text",
+      "tableColumnId": 64426364
+    },
+    {
+      "dataTypeName": "text",
+      "description": "A list of transit revenue vehicle fleet IDs with which to identify the transit vehicles involved in the event. Please find details about the transit vehicle fleet using the most recent Revenue Vehicle Inventory from https://transit.dot.gov/ntd/ntd-data.",
+      "fieldName": "revenue_vehicle_identifier_list",
+      "format": {},
+      "id": 634684828,
+      "name": "Revenue Vehicle Identifier List",
+      "position": 77,
+      "renderTypeName": "text",
+      "tableColumnId": 155407470
+    },
+    {
+      "dataTypeName": "text",
+      "description": "Identifies the type of fuel used to power the transit vehicle involved.",
+      "fieldName": "fuel_type",
+      "format": {},
+      "id": 634684829,
+      "name": "Fuel Type",
+      "position": 78,
+      "renderTypeName": "text",
+      "tableColumnId": 64426365
+    },
+    {
+      "dataTypeName": "number",
+      "description": "Identifies the actual or estimated speed at the time of the collision or derailment.",
+      "fieldName": "vehicle_speed",
+      "format": {},
+      "id": 634684830,
+      "name": "Vehicle Speed",
+      "position": 79,
+      "renderTypeName": "number",
+      "tableColumnId": 143499240
+    },
+    {
+      "dataTypeName": "text",
+      "description": "Identifies the form of passenger conveyance used for revenue operations.",
+      "fieldName": "transit_vehicle_type",
+      "format": {},
+      "id": 634684831,
+      "name": "Transit Vehicle Type",
+      "position": 80,
+      "renderTypeName": "text",
+      "tableColumnId": 156825349
+    },
+    {
+      "dataTypeName": "text",
+      "description": "A list of vehicle types for non-transit vehicles involved in the event.",
+      "fieldName": "non_rail_transit_vehicle",
+      "format": {},
+      "id": 634684832,
+      "name": "Non-Transit Vehicle Type List",
+      "position": 81,
+      "renderTypeName": "text",
+      "tableColumnId": 143491085
+    },
+    {
+      "dataTypeName": "text",
+      "description": "Identifies the manufacturer of the transit vehicle for collisions.",
+      "fieldName": "manufacturer",
+      "format": {},
+      "id": 634684833,
+      "name": "Transit Vehicle Manufacturer",
+      "position": 82,
+      "renderTypeName": "text",
+      "tableColumnId": 64426369
+    },
+    {
+      "dataTypeName": "text",
+      "description": "Text explanation from the 'Please describe\" box used when \"Other'' is selected for the Manufacturer type.",
+      "fieldName": "manufacturer_description",
+      "format": {},
+      "id": 634684834,
+      "name": "Other Transit Vehicle Manufacturer Description",
+      "position": 83,
+      "renderTypeName": "text",
+      "tableColumnId": 143494428
+    },
+    {
+      "dataTypeName": "number",
+      "description": "Count of vehicle passenger fatalities for the given event",
+      "fieldName": "transit_vehicle_rider",
+      "format": {},
+      "id": 634684835,
+      "name": "Transit Vehicle Rider Fatalities",
+      "position": 84,
+      "renderTypeName": "number",
+      "tableColumnId": 143499211
+    },
+    {
+      "dataTypeName": "number",
+      "description": "Count of Person waiting / leaving from transit fatalities for the given event.",
+      "fieldName": "people_waiting_or_leaving",
+      "format": {},
+      "id": 634684836,
+      "name": "People Waiting or Leaving Fatalities",
+      "position": 85,
+      "renderTypeName": "number",
+      "tableColumnId": 143499210
+    },
+    {
+      "dataTypeName": "number",
+      "description": "Count of Transit vehicle operator fatalities for the given event.",
+      "fieldName": "transit_vehicle_operator",
+      "format": {},
+      "id": 634684837,
+      "name": "Transit Vehicle Operator Fatalities",
+      "position": 86,
+      "renderTypeName": "number",
+      "tableColumnId": 143499270
+    },
+    {
+      "dataTypeName": "number",
+      "description": "Count of Transit employee or contractor fatalities for the given event. Includes \"Other Transit Staff\" inside the vehicle. Does not include vehicle operators.",
+      "fieldName": "transit_employee_fatalities",
+      "format": {},
+      "id": 634684838,
+      "name": "Non-Operator Transit Employee Fatalities",
+      "position": 87,
+      "renderTypeName": "number",
+      "tableColumnId": 143499234
+    },
+    {
+      "dataTypeName": "number",
+      "description": "Count of Other worker (e.g.,commercial worker / utilites worker / etc.) fatalities for the given event.",
+      "fieldName": "other_worker_fatalities",
+      "format": {},
+      "id": 634684839,
+      "name": "Other Worker Fatalities",
+      "position": 88,
+      "renderTypeName": "number",
+      "tableColumnId": 143499214
+    },
+    {
+      "dataTypeName": "number",
+      "description": "Count of Pedestrian: bicyclist fatalities for the given event.",
+      "fieldName": "bicyclist_fatalities",
+      "format": {},
+      "id": 634684840,
+      "name": "Bicyclist Fatalities",
+      "position": 89,
+      "renderTypeName": "number",
+      "tableColumnId": 143499225
+    },
+    {
+      "dataTypeName": "number",
+      "description": "Count of Pedestrian: in crosswalk fatalities for the given event.",
+      "fieldName": "pedestrian_in_crosswalk",
+      "format": {},
+      "id": 634684841,
+      "name": "Pedestrian in Crosswalk Fatalities",
+      "position": 90,
+      "renderTypeName": "number",
+      "tableColumnId": 143499238
+    },
+    {
+      "dataTypeName": "number",
+      "description": "Count of Pedestrian: not in crosswalk fatalities for the given event.",
+      "fieldName": "pedestrian_not_in_crosswalk",
+      "format": {},
+      "id": 634684842,
+      "name": "Pedestrian Not in Crosswalk Fatalities",
+      "position": 91,
+      "renderTypeName": "number",
+      "tableColumnId": 143499267
+    },
+    {
+      "dataTypeName": "number",
+      "description": "Count of Pedestrian: person crossing tracks fatalities for the given event.",
+      "fieldName": "pedestrian_crossing_tracks",
+      "format": {},
+      "id": 634684843,
+      "name": "Pedestrian Crossing Tracks Fatalities",
+      "position": 92,
+      "renderTypeName": "number",
+      "tableColumnId": 143499252
+    },
+    {
+      "dataTypeName": "number",
+      "description": "Count of Pedestrian: person walking along tracks fatalities for the given event.",
+      "fieldName": "pedestrian_walking_along",
+      "format": {},
+      "id": 634684844,
+      "name": "Pedestrian Walking Along Tracks Fatalities",
+      "position": 93,
+      "renderTypeName": "number",
+      "tableColumnId": 143499231
+    },
+    {
+      "dataTypeName": "number",
+      "description": "Count of Occupant of other vehicle fatalities for the given event.",
+      "fieldName": "occupant_of_other_vehicle",
+      "format": {},
+      "id": 634684845,
+      "name": "Occupant of Other Vehicle Fatalities",
+      "position": 94,
+      "renderTypeName": "number",
+      "tableColumnId": 143499258
+    },
+    {
+      "dataTypeName": "number",
+      "description": "Count of Other fatalities for the given event.",
+      "fieldName": "other_fatalities",
+      "format": {},
+      "id": 634684846,
+      "name": "Other Fatalities",
+      "position": 95,
+      "renderTypeName": "number",
+      "tableColumnId": 143499275
+    },
+    {
+      "dataTypeName": "number",
+      "description": "Count of Suicide related fatalities for the given event.",
+      "fieldName": "suicide_fatalities",
+      "format": {},
+      "id": 634684847,
+      "name": "Suicide Fatalities",
+      "position": 96,
+      "renderTypeName": "number",
+      "tableColumnId": 143499243
+    },
+    {
+      "dataTypeName": "number",
+      "description": "The count of trespasser fatalities in the event. A trespasser is any person in an area of transit property not intended for public use (i.e., an unauthorized area). Note that trespassers are also counted in the respective person type column to describe the action of the trespasser at the time of the event.",
+      "fieldName": "trespasser_fatalities_subtotal_",
+      "format": {},
+      "id": 634684848,
+      "name": "Trespasser Fatalities (Subtotal)",
+      "position": 97,
+      "renderTypeName": "number",
+      "tableColumnId": 155775467
+    },
+    {
+      "dataTypeName": "number",
+      "description": "Count of Transit vehicle rider Injuries for the given event.",
+      "fieldName": "transit_vehicle_rider_injuries",
+      "format": {},
+      "id": 634684849,
+      "name": "Transit Vehicle Rider Injuries",
+      "position": 98,
+      "renderTypeName": "number",
+      "tableColumnId": 143499268
+    },
+    {
+      "dataTypeName": "number",
+      "description": "Count of serious Transit vehicle rider Injuries for the given event.",
+      "fieldName": "transit_vehicle_rider_serious",
+      "format": {},
+      "id": 634684850,
+      "name": "Transit Vehicle Rider Serious Injuries",
+      "position": 99,
+      "renderTypeName": "number",
+      "tableColumnId": 143499217
+    },
+    {
+      "dataTypeName": "number",
+      "description": "Count of Person waiting / leaving from transit Injuries for the given event.",
+      "fieldName": "people_waiting_or_leaving_1",
+      "format": {},
+      "id": 634684851,
+      "name": "People Waiting or Leaving Injuries",
+      "position": 100,
+      "renderTypeName": "number",
+      "tableColumnId": 143499249
+    },
+    {
+      "dataTypeName": "number",
+      "description": "Count of serious Person waiting / leaving from transit Injuries for the given event.",
+      "fieldName": "people_waiting_or_leaving_2",
+      "format": {},
+      "id": 634684852,
+      "name": "People Waiting or Leaving Serious Injuries",
+      "position": 101,
+      "renderTypeName": "number",
+      "tableColumnId": 143499227
+    },
+    {
+      "dataTypeName": "number",
+      "description": "Count of Transit vehicle operator Injuries for the given event.",
+      "fieldName": "transit_vehicle_operator_1",
+      "format": {},
+      "id": 634684853,
+      "name": "Transit Vehicle Operator Injuries",
+      "position": 102,
+      "renderTypeName": "number",
+      "tableColumnId": 143499212
+    },
+    {
+      "dataTypeName": "number",
+      "description": "Count of serious Transit vehicle operator Injuries for the given event.",
+      "fieldName": "transit_vehicle_operator_2",
+      "format": {},
+      "id": 634684854,
+      "name": "Transit Vehicle Operator Serious Injuries",
+      "position": 103,
+      "renderTypeName": "number",
+      "tableColumnId": 143499224
+    },
+    {
+      "dataTypeName": "number",
+      "description": "Count of Transit employee or contractor Injuries for the given event. Includes \"Other Transit Staff\" inside the vehicle. Does not include vehicle operators.",
+      "fieldName": "transit_employee_injuries",
+      "format": {},
+      "id": 634684855,
+      "name": "Non-Operator Transit Employee Injuries",
+      "position": 104,
+      "renderTypeName": "number",
+      "tableColumnId": 143499213
+    },
+    {
+      "dataTypeName": "number",
+      "description": "Count of serious Transit employee or contractor Injuries for the given event.",
+      "fieldName": "transit_employee_serious",
+      "format": {},
+      "id": 634684856,
+      "name": "Non-Operator Transit Employee Serious Injuries",
+      "position": 105,
+      "renderTypeName": "number",
+      "tableColumnId": 143499266
+    },
+    {
+      "dataTypeName": "number",
+      "description": "Count of Other worker (e.g.,commercial worker / utilites worker / etc.) Injuries for the given event.",
+      "fieldName": "other_worker_injuries",
+      "format": {},
+      "id": 634684857,
+      "name": "Other Worker Injuries",
+      "position": 106,
+      "renderTypeName": "number",
+      "tableColumnId": 143499273
+    },
+    {
+      "dataTypeName": "number",
+      "description": "Count of serious Other worker (e.g.,commercial worker / utilites worker / etc.) Injuries for the given event.",
+      "fieldName": "other_worker_serious_injuries",
+      "format": {},
+      "id": 634684858,
+      "name": "Other Worker Serious Injuries",
+      "position": 107,
+      "renderTypeName": "number",
+      "tableColumnId": 143499221
+    },
+    {
+      "dataTypeName": "number",
+      "description": "Count of Pedestrian: bicyclist Injuries for the given event.",
+      "fieldName": "bicyclist_injuries",
+      "format": {},
+      "id": 634684859,
+      "name": "Bicyclist Injuries",
+      "position": 108,
+      "renderTypeName": "number",
+      "tableColumnId": 143499223
+    },
+    {
+      "dataTypeName": "number",
+      "description": "Count of serious Pedestrian: bicyclist Injuries for the given event.",
+      "fieldName": "bicyclist_serious_injuries",
+      "format": {},
+      "id": 634684860,
+      "name": "Bicyclist Serious Injuries",
+      "position": 109,
+      "renderTypeName": "number",
+      "tableColumnId": 143499220
+    },
+    {
+      "dataTypeName": "number",
+      "description": "Count of Pedestrian: in crosswalk Injuries for the given event.",
+      "fieldName": "pederstiran_in_crosswalk",
+      "format": {},
+      "id": 634684861,
+      "name": "Pedestrian in Crosswalk Injuries",
+      "position": 110,
+      "renderTypeName": "number",
+      "tableColumnId": 143499247
+    },
+    {
+      "dataTypeName": "number",
+      "description": "Count of serious Pedestrian: in crosswalk Injuries for the given event.",
+      "fieldName": "pederstiran_in_crosswalk_1",
+      "format": {},
+      "id": 634684862,
+      "name": "Pedestrian in Crosswalk Serious Injuries",
+      "position": 111,
+      "renderTypeName": "number",
+      "tableColumnId": 143499222
+    },
+    {
+      "dataTypeName": "number",
+      "description": "Count of Pedestrian: not in crosswalk Injuries for the given event.",
+      "fieldName": "pedestrian_not_in_crosswalk_1",
+      "format": {},
+      "id": 634684863,
+      "name": "Pedestrian Not in Crosswalk Injuries",
+      "position": 112,
+      "renderTypeName": "number",
+      "tableColumnId": 143499276
+    },
+    {
+      "dataTypeName": "number",
+      "description": "Count of serious Pedestrian: not in crosswalk Injuries for the given event.",
+      "fieldName": "pedestrian_not_in_crosswalk_2",
+      "format": {},
+      "id": 634684864,
+      "name": "Pedestrian Not in Crosswalk Serious Injuries",
+      "position": 113,
+      "renderTypeName": "number",
+      "tableColumnId": 143499261
+    },
+    {
+      "dataTypeName": "number",
+      "description": "Count of Pedestrian: person crossing tracks Injuries for the given event.",
+      "fieldName": "pedestrian_crossing_tracks_1",
+      "format": {},
+      "id": 634684865,
+      "name": "Pedestrian Crossing Tracks Injuries",
+      "position": 114,
+      "renderTypeName": "number",
+      "tableColumnId": 143499228
+    },
+    {
+      "dataTypeName": "number",
+      "description": "Count of serious Pedestrian: person crossing tracks Injuries for the given event.",
+      "fieldName": "pedestrian_crossing_tracks_2",
+      "format": {},
+      "id": 634684866,
+      "name": "Pedestrian Crossing Tracks Serious Injuries",
+      "position": 115,
+      "renderTypeName": "number",
+      "tableColumnId": 143499263
+    },
+    {
+      "dataTypeName": "number",
+      "description": "Count of Pedestrian: person walking along tracks Injuries for the given event.",
+      "fieldName": "pedestrian_walking_along_1",
+      "format": {},
+      "id": 634684867,
+      "name": "Pedestrian Walking Along Tracks Injuries",
+      "position": 116,
+      "renderTypeName": "number",
+      "tableColumnId": 143499262
+    },
+    {
+      "dataTypeName": "number",
+      "description": "Count of serious Pedestrian: person walking along tracks Injuries for the given event.",
+      "fieldName": "pedestrian_walking_along_2",
+      "format": {},
+      "id": 634684868,
+      "name": "Pedestrian Walking Along Tracks Serious Injuries",
+      "position": 117,
+      "renderTypeName": "number",
+      "tableColumnId": 143499229
+    },
+    {
+      "dataTypeName": "number",
+      "description": "Count of Occupant of other vehicle Injuries for the given event.",
+      "fieldName": "occupant_of_other_vehicle_1",
+      "format": {},
+      "id": 634684869,
+      "name": "Occupant of Other Vehicle Injuries",
+      "position": 118,
+      "renderTypeName": "number",
+      "tableColumnId": 143499272
+    },
+    {
+      "dataTypeName": "number",
+      "description": "Count of serious Occupant of other vehicle Injuries for the given event.",
+      "fieldName": "occupant_of_other_vehicle_2",
+      "format": {},
+      "id": 634684870,
+      "name": "Occupant of Other Vehicle Serious Injuries",
+      "position": 119,
+      "renderTypeName": "number",
+      "tableColumnId": 143499233
+    },
+    {
+      "dataTypeName": "number",
+      "description": "Count of Other Injuries for the given event.",
+      "fieldName": "other_injuries",
+      "format": {},
+      "id": 634684871,
+      "name": "Other Injuries",
+      "position": 120,
+      "renderTypeName": "number",
+      "tableColumnId": 143499216
+    },
+    {
+      "dataTypeName": "number",
+      "description": "Count of serious Other Injuries for the given event.",
+      "fieldName": "other_serious_injuries",
+      "format": {},
+      "id": 634684872,
+      "name": "Other Serious Injuries",
+      "position": 121,
+      "renderTypeName": "number",
+      "tableColumnId": 143499236
+    },
+    {
+      "dataTypeName": "number",
+      "description": "Count of Suicide related injuries for the given event.",
+      "fieldName": "suicide_injuries",
+      "format": {},
+      "id": 634684873,
+      "name": "Suicide Injuries",
+      "position": 122,
+      "renderTypeName": "number",
+      "tableColumnId": 143499232
+    },
+    {
+      "dataTypeName": "number",
+      "description": "Count of serious Suicide related injuries for the given event.",
+      "fieldName": "suicide_serious_injuries",
+      "format": {},
+      "id": 634684874,
+      "name": "Suicide Serious Injuries",
+      "position": 123,
+      "renderTypeName": "number",
+      "tableColumnId": 143499269
+    },
+    {
+      "dataTypeName": "number",
+      "description": "The count of injuries to trespassers in the event. A trespasser is any person in an area of transit property not intended for public use (i.e., an unauthorized area). Note that trespassers are also counted in the respective person type column to describe the action of the trespasser at the time of the event.",
+      "fieldName": "trespasser_inuries_subtotal_",
+      "format": {},
+      "id": 634684875,
+      "name": "Trespasser Inuries (Subtotal)",
+      "position": 124,
+      "renderTypeName": "number",
+      "tableColumnId": 155775466
+    },
+    {
+      "dataTypeName": "number",
+      "description": "The count of serious injuries to trespassers in the event. A trespasser is any person in an area of transit property not intended for public use (i.e., an unauthorized area). Note that trespassers are also counted in the respective person type column to describe the action of the trespasser at the time of the event.",
+      "fieldName": "trespasser_serious_injuries_subtotal_",
+      "format": {},
+      "id": 634684876,
+      "name": "Trespasser Serious Injuries (Subtotal)",
+      "position": 125,
+      "renderTypeName": "number",
+      "tableColumnId": 155775465
+    },
+    {
+      "dataTypeName": "number",
+      "description": "Sum of the Count of all serious person type injuries for the given event.",
+      "fieldName": "total_serious_injuries",
+      "format": {},
+      "id": 634684877,
+      "name": "Total Serious Injuries",
+      "position": 126,
+      "renderTypeName": "number",
+      "tableColumnId": 143499215
+    },
+    {
+      "dataTypeName": "text",
+      "description": "For each injury or fatality in an event, the following information is supplied separated by semicolons: I (Injury) or F (Fatality), H (Homicide or Assault) or  S (Suicide or Attempted Suicide), T (if the person was trespassing) or U (if the trespassing status is unknown), Person Type, Age Group, Gender, Y (if medical transport was required)",
+      "fieldName": "person_list",
+      "format": {},
+      "id": 634684878,
+      "name": "Person List",
+      "position": 127,
+      "renderTypeName": "text",
+      "tableColumnId": 143491086
+    },
+    {
+      "computationStrategy": {
+        "parameters": {
+          "primary_key": "_feature_id",
+          "region": "_8fe2-rd7y"
+        },
+        "source_columns": [
+          "latlon"
+        ],
+        "type": "georegion_match_on_point"
+      },
+      "dataTypeName": "number",
+      "description": "This column was automatically created in order to record in what polygon from the dataset 'United States' (8fe2-rd7y) the point in column 'latlon' is located.  This enables the creation of region maps (choropleths) in the visualization canvas and data lens.",
+      "fieldName": ":@computed_region_8fe2_rd7y",
+      "format": {},
+      "id": 634684881,
+      "name": "United States",
+      "position": 129,
+      "renderTypeName": "number",
+      "tableColumnId": 147340591
+    },
+    {
+      "computationStrategy": {
+        "parameters": {
+          "primary_key": "_feature_id",
+          "region": "_m2nu-4dib"
+        },
+        "source_columns": [
+          "latlon"
+        ],
+        "type": "georegion_match_on_point"
+      },
+      "dataTypeName": "number",
+      "description": "This column was automatically created in order to record in what polygon from the dataset 'US Counties' (m2nu-4dib) the point in column 'latlon' is located.  This enables the creation of region maps (choropleths) in the visualization canvas and data lens.",
+      "fieldName": ":@computed_region_m2nu_4dib",
+      "format": {},
+      "id": 634684880,
+      "name": "US Counties",
+      "position": 130,
+      "renderTypeName": "number",
+      "tableColumnId": 147340592
+    }
+  ],
+  "createdAt": 1525355792,
+  "description": "This is a list of all Major Safety and Security Events from January of 2014 to the most recently published data within the Federal Transit Administration's major event time series: https://www.transit.dot.gov/ntd/data-product/safety-security-major-only-time-series-data\n\nMonthly Safety and Security data are released to this dataset within three months of being submitted to the NTD. Generally, there will be at least 90-day lag between when the event occurs and when it is included in this data set.\n\nFollowing the 2023 reporting change, where transit agencies were required to provide additional detail when a transit worker was injured in an assault, we began capturing a transit worker assault flag in our database and publishing the flag in the Major Events file at data.transportation.gov. This flag is useful for creating summary counts of TWA since the reporting change. However, for events prior to the reporting change the values in this column were misleading. For data users unfamiliar with the change in reporting circa 2023, they may be under the impression that we did not collect transit worker assault data prior to 2023, or even that there were no transit worker assault events prior to 2023. Users previously had to filter on 4 different columns to derive pre-2023 transit worker assault events. We have now incorporated that filter logic into the production of the transit worker flag column. Filtering and summarizing using this column now produces counts that align with annual totals for transit worker assaults across all our files.",
+  "diciBackend": false,
+  "displayType": "table",
+  "domainCName": "data.transportation.gov",
+  "downloadCount": 55436,
+  "flags": [
+    "default",
+    "federated",
+    "internalToPublicFederatedView",
+    "ownerMayBeContacted",
+    "restorable",
+    "restorePossibleForType"
+  ],
+  "hideFromCatalog": false,
+  "hideFromDataJson": false,
+  "id": "9ivb-8ae9",
+  "license": {
+    "name": "Public Domain U.S. Government",
+    "termsLink": "https://www.usa.gov/government-works"
+  },
+  "licenseId": "USGOV_WORKS",
+  "locale": "en_US",
+  "locked": false,
+  "metadata": {
+    "attachments": [
+      {
+        "assetId": "349796e1-339d-4842-9af0-44a3907ceda6",
+        "filename": "Transit Worker Assault Flag - April 2026.docx",
+        "name": "Transit Worker Assault Flag - April 2026.docx"
+      }
+    ],
+    "availableDisplayTypes": [
+      "table",
+      "fatrow",
+      "page"
+    ],
+    "custom_fields": {
+      "Common Core": {
+        "Bureau Code": "021:36",
+        "Contact Email": "NTDHelp@dot.gov",
+        "Contact Name": "NTD Program Support",
+        "Geographic Coverage": "United States",
+        "Is Quality Data": "true",
+        "Language": "en-US",
+        "License": "http://www.usa.gov/publicdomain/label/1.0/",
+        "Program Code": "021:061",
+        "Public Access Level": "public",
+        "Publisher": "Federal Transit Administration",
+        "Temporal Applicability": "R/2014-01-01/P1M",
+        "Update Frequency": "R/P1M"
+      },
+      "Common Core 3": {
+        "Bureau Code": "021:36",
+        "Contact Email": "NTDHelp@dot.gov",
+        "Contact Name": "NTD Program Support",
+        "Geographic Name": "United States",
+        "Language": "en-US",
+        "Program Code": "021:061",
+        "Publisher": "Federal Transit Administration",
+        "Rights": "public",
+        "Temporal Applicability": "R/2014-01-01/P1M"
+      }
+    },
+    "renderTypeConfig": {
+      "visible": {
+        "table": true
+      }
+    }
+  },
+  "name": "Major Safety and Security Events",
+  "newBackend": true,
+  "numberOfComments": 0,
+  "oid": 42196961,
+  "provenance": "official",
+  "publicationAppendEnabled": false,
+  "publicationDate": 1780598772,
+  "publicationGroup": 15133530,
+  "publicationStage": "published",
+  "query": {},
+  "rights": [
+    "read"
+  ],
+  "rowsUpdatedAt": 1791313446,
+  "tableId": 20411270,
+  "tags": [
+    "safety",
+    "security",
+    "transit"
+  ],
+  "totalTimesRated": 0,
+  "viewCount": 71735,
+  "viewLastModified": 1791312513,
+  "viewType": "tabular"
+}

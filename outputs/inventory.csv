@@ -1,0 +1,6 @@
+dataset,records,accepted,rejected,unique_agencies,earliest,latest,keys
+modal,193539,193527,12,636,2014-01-01,2026-08-01,ntd_id|mode|tos|date
+major,116364,116364,0,535,2014-01-01,2026-06-01,ntd_id|year|incident_number
+nonmajor,112896,107932,4964,647,2008-01-01,2026-06-01,ntd_id|mode|tos|date|eventtype|location|sftsecfl
+fra_security,3260,3260,0,29,2007-04-01,2026-07-01,ntd_id|year|incident_number
+exposure,372801,372777,24,835,2002-01-01,2026-08-01,ntd_id|mode|tos|date

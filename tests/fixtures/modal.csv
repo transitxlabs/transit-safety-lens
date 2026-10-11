@@ -1,0 +1,7 @@
+_5_digit_ntd_id,agency,mode,type_of_service,month_year,total_events,total_collisions,total_derailments,total_fires,total_security_events,total_events_not_otherwise,vehicle_revenue_miles,vehicle_revenue_hours,ridership
+1,Fixture Agency,MB,DO,2021-01-01,2,1,0,0,0,1,1000,100,5000
+1,Fixture Agency,MB,DO,2021-02-01,,0,0,0,0,0,,100,5000
+2,Fixture Other,MB,DO,2021-01-01,-1,0,0,0,0,0,1000,100,5000
+3,Fixture Duplicate,MB,DO,2021-01-01,0,0,0,0,0,0,1000,100,5000
+3,Fixture Duplicate,MB,DO,2021-01-01,0,0,0,0,0,0,1000,100,5000
+4,Fixture Unknown,XX,DO,2021-01-01,0,0,0,0,0,0,1000,100,5000

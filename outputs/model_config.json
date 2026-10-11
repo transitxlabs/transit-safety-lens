@@ -1,0 +1,21 @@
+{
+  "agency_size_boundaries_miles": [
+    1000000,
+    10000000
+  ],
+  "definition_timeline": "data/definitions/timeline.json",
+  "exposure_unit": "million_vehicle_revenue_miles",
+  "heldout_flag_years": [
+    2020,
+    2021
+  ],
+  "heldout_year": 2022,
+  "interval_level": 0.95,
+  "main_years": [
+    2021,
+    2022
+  ],
+  "minimum_peer_groups": 5,
+  "posterior_false_sign_target": 0.05,
+  "training_year": 2019
+}
