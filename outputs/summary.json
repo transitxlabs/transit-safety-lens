@@ -163,5 +163,5 @@
     "rate": null,
     "status": "unavailable_without_two_published_releases"
   },
-  "status": "local_research_release_check_required"
+  "status": "aggregate_research_output"
 }

@@ -384,7 +384,7 @@ def rebuild(root: Path, output: Path) -> dict[str, Any]:
     excluded_pairs = pd.concat([compare_years(annual, priors, y, y + 1, timeline, universe)
                                 for y in [2022, 2023, 2024, 2025]], ignore_index=True)
     write_csv(output / "recent_comparison_exclusions.csv", excluded_pairs)
-    summary = dict(status="local_research_release_check_required", full_record_inventory=inventory,
+    summary = dict(status="aggregate_research_output", full_record_inventory=inventory,
                    model=dict(training_year=2019, comparison_years=[2021, 2022],
                               eligible_comparisons=int(current["eligible"].sum()),
                               unavailable_comparisons=int((~current["eligible"]).sum()),

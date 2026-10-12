@@ -37,7 +37,7 @@ Examples are three eligible agency/mode keys selected in sorted order, not a ran
 
 The held-out comparison fits on earlier data, flags 2020-2021 changes, and evaluates 2022. Predictive intervals cover 742 of 818 eligible outcomes (90.709%). Of 64 eligible flagged changes, 57 retain the same raw-rate direction relative to 2020 (89.062%). Empirical predictive coverage is below the nominal 95% level. Flags remain exploratory; persistence alone does not validate interval calibration. See [outputs/heldout.csv](outputs/heldout.csv).
 
-All numbers above are generated from outputs/summary.json, inventory.csv, baseline_comparison.csv and credible_change.csv. [The technical note](docs/TECHNICAL_NOTE.md) explains the assumptions and [six-page PDF](docs/TECHNICAL_NOTE.pdf) provides a printable companion.
+All numbers above are generated from outputs/summary.json, inventory.csv, baseline_comparison.csv and credible_change.csv. The status field in outputs/summary.json labels the kind of output; the release status is stated in this README. [The technical note](docs/TECHNICAL_NOTE.md) explains the assumptions and [six-page PDF](docs/TECHNICAL_NOTE.pdf) provides a printable companion.
 
 ## Quality, provenance and definitions
 

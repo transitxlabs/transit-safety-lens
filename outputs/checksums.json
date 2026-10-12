@@ -5,7 +5,7 @@
   "baseline_comparison.csv": "adc68666d4815bbad2fb41f0a9acedc18b6991bd247b262fbd6a76387261cc5b",
   "credible_change.csv": "9f744bedfb17692b48ac0c09ce5b29354e70b0bebaff6b842981933dfcab2ab0",
   "definition_timeline.csv": "e17db79f72f0e0e5e0dd2a8f4c7a022e77497ee451e43af2003dc0955bf27ed5",
-  "document_checksums.json": "3bc7099422dfeaa1034f483aa4cc2b21cd944ae8673e128587bdefdc1149436e",
+  "document_checksums.json": "841323db7a4d4905c47598998f5df6866914a31a284c9bb984394c6cf53f4628",
   "event_reconciliation.csv": "ecb6e84b7df386412ec9dad54be0e38dd46495b2d164b8a06ab120458a32f10d",
   "exposure_join_summary.csv": "eadbe6ef328f5421b0185eface6d24a12c76fe5204c25fe8ceea98dfe467f932",
   "exposure_joins.csv": "7b9526bce293ad89f8259cb70924652d6b781237181f216e00afb04974a4414a",
@@ -22,5 +22,5 @@
   "quality_rates.csv": "26e10423c8abe31eed286c551d8c8a4564f794b6edffbd1cf931188fb4078586",
   "recent_comparison_exclusions.csv": "622722f291cf4e37c0a8c93eb5d229406d566b97075b3d30faf5f135302b0ac5",
   "revision_rates.csv": "554c83e254d306f098ad31e27f716704e42dd6b546ef2c5beada909a539a66bf",
-  "summary.json": "02f95542f89ac2f3cfa7e37a96bf096f8fcb67ba246d1a3352d36b06f2e8fdf7"
+  "summary.json": "23341d6545b7601820a1f00e01955cb402f09eb504f35d73856593bfaf5c0484"
 }
