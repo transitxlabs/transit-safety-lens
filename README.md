@@ -2,7 +2,7 @@
 
 Transit Safety Lens is a research package by TransitX Labs Inc. It checks how complete, consistent and comparable the official US National Transit Database safety records it acquired are. It estimates changes in reported event rates per vehicle revenue mile under a stated statistical model. For transit safety analysts, regulators and researchers who compare agencies' public safety records.
 
-![Static results page showing the model-conditional change comparison table for 893 agency and mode pairs, with raw count and model flag counts.](docs/media/hero.png)
+![Top of the Transit Safety Lens results page: the public aggregate release note of 2026-10-11, what the records support and what they do not, and the start of the model-conditional change results.](docs/media/hero.png)
 
 **[Try it live](https://transitxlabs.github.io/transit-safety-lens/)** (static summary page; no install required). See [docs/PAGES_TODO.md](docs/PAGES_TODO.md) for when the link goes live.
 
