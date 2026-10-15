@@ -1,6 +1,58 @@
 # Transit Safety Lens
 
-TransitX Labs Inc. is building a reproducible public transit safety data research system. This package measures the completeness, consistency and comparability of published National Transit Database records, and estimates exposure-normalised changes under a stated statistical model. It supports safety data management by making missingness, exclusions and source lineage inspectable.
+Transit Safety Lens is a research package by TransitX Labs Inc. It checks how complete, consistent and comparable the official US National Transit Database safety records it acquired are. It estimates changes in reported event rates per vehicle revenue mile under a stated statistical model. For transit safety analysts, regulators and researchers who compare agencies' public safety records.
+
+![Static results page showing the model-conditional change comparison table for 893 agency and mode pairs, with raw count and model flag counts.](docs/media/hero.png)
+
+**[Try it live](https://transitxlabs.github.io/transit-safety-lens/)** (static summary page; no install required). See [docs/PAGES_TODO.md](docs/PAGES_TODO.md) for when the link goes live.
+
+[![Screen recording preview of the static results page and output charts](docs/media/demo-preview.gif)](https://transitxlabs.github.io/transit-safety-lens/media/demo.mp4)
+
+| Raw count versus model flags (2021 to 2022) | Held-out predictive coverage |
+| --- | --- |
+| ![Bar chart comparing raw count flags (351 increases, 224 decreases) with model flags (55 increases, 18 decreases) among 893 comparisons.](docs/media/chart-flag-comparison.png) | ![Bar chart of held-out outcomes inside versus outside predictive intervals: 742 of 818 covered, below the nominal 95 percent level.](docs/media/chart-heldout-coverage.png) |
+
+![Offline rebuild pipeline from frozen National Transit Database inputs through checks, joins, priors, comparisons and published outputs.](docs/media/architecture.png)
+
+| Example outputs | |
+| --- | --- |
+| ![Crop of the change comparison table with naive and credible flag counts for raw count and raw rate baselines.](docs/media/example-results-table.png) | ![Crop of the frozen record coverage table for modal, major, nonmajor, fra_security and exposure datasets.](docs/media/example-coverage-table.png) |
+
+## How it works
+
+1. Acquire official National Transit Database products and freeze them with hashes.
+2. Check every acquired row and record accepted and rejected rows.
+3. Measure field completeness and rule-based quality rates, then link monthly event counts to vehicle revenue miles.
+4. Fit peer-group priors on 2019 and compare 2021 with 2022 for each agency and mode (893 comparisons kept, 663 excluded within one definition regime).
+5. Flag changes with posterior intervals and compare with raw count and rate flags; flags remain exploratory.
+6. Evaluate held-out years: fit on earlier data, flag 2020 to 2021 changes and score 2022 coverage (below nominal 95 percent).
+
+## Architecture
+
+![Diagram of pipeline stages: frozen inputs, record checks, exposure joins, 2019 priors, 2021 to 2022 comparisons, held-out evaluation, and CSV outputs with technical note and static page.](docs/media/architecture.png)
+
+Components: `scripts/acquire.py` (optional network fetch), `src/transit_safety_lens/pipeline.py` (offline rebuild), quality and definition modules, gamma-Poisson model in `model.py`, and `publish.py` for README, technical note and `docs/site/index.html`.
+
+## Design choices
+
+- **Frozen hashes on every acquired file** so rebuilds detect any change to official inputs before recomputing aggregates.
+- **Definition-regime guards** so year-to-year comparisons stay within one reporting rule set; blocked pairs are listed, not forced.
+- **Raw baselines beside the stated model** so analysts can see how many naive count or rate flags the shrinkage rule drops or keeps.
+- **Held-out coverage reported explicitly** because empirical interval coverage fell below the nominal 95 percent level in this release.
+
+## Why it matters
+
+Raw counts flagged 575 of 893 comparisons, the model 73; its prediction ranges caught fewer held-out results than 95 percent.
+
+## Showcase media
+
+Regenerate hero images, charts, captions and the demo video with:
+
+```bash
+python3 scripts/make_showcase_media.py
+```
+
+Requires Google Chrome, ffmpeg, and Pillow (installed with the package). Large `showcase-media/demo.mp4` stays local until Pages publish; copy it to `docs/media/demo.mp4` when enabling Pages.
 
 **Status: public aggregate release (2026-10-11), with incident and non-major raw rows excluded from tracking. Acquisition and revision gaps remain; held-out coverage is below nominal and flags remain exploratory.**
 
