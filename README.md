@@ -4,7 +4,7 @@ Transit Safety Lens is a research package by TransitX Labs Inc. It checks how co
 
 ![Top of the Transit Safety Lens results page: the public aggregate release note of 2026-10-11, what the records support and what they do not, and the start of the model-conditional change results.](docs/media/hero.png)
 
-**[Try it live](https://transitxlabs.github.io/transit-safety-lens/)** (static summary page; no install required). See [docs/PAGES_TODO.md](docs/PAGES_TODO.md) for when the link goes live.
+**[Try it live](https://transitxlabs.github.io/transit-safety-lens/)** (static summary page; no install required).
 
 [![Screen recording preview of the static results page and output charts](docs/media/demo-preview.gif)](https://transitxlabs.github.io/transit-safety-lens/media/demo.mp4)
 
