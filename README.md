@@ -6,7 +6,7 @@ Transit Safety Lens is a research package by TransitX Labs Inc. It checks how co
 
 How it was made: its code and documentation were written with AI coding assistants and reviewed, tested and revised by Amir Daneshpajouh.
 
-**[Try it live](https://transitxlabs.github.io/transit-safety-lens/)** (static summary page; no install required). See [docs/PAGES_TODO.md](docs/PAGES_TODO.md) for when the link goes live.
+**[Try it live](https://transitxlabs.github.io/transit-safety-lens/)** (static summary page; no install required).
 
 [![Screen recording preview of the static results page and output charts](docs/media/demo-preview.gif)](https://transitxlabs.github.io/transit-safety-lens/media/demo.mp4)
 
