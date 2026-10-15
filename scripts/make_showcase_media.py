@@ -3,10 +3,16 @@
 
 from __future__ import annotations
 
+import asyncio
+import base64
 import json
 import shutil
+import socket
 import subprocess
 import sys
+import time
+import urllib.parse
+import urllib.request
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
@@ -17,15 +23,57 @@ MEDIA = DOCS / "media"
 SHOWCASE = ROOT / "showcase-media"
 CHROME = Path("/Applications/Google Chrome.app/Contents/MacOS/Google Chrome")
 FFMPEG = Path(shutil.which("ffmpeg") or "")
-EXIFTOOL = Path("/opt/homebrew/bin/exiftool")
-STEPS = [
-    ("Overview of the static results page.", "/index.html", 0),
-    ("Change comparison table for 893 agency and mode pairs.", "/index.html#model-results", 0),
-    ("Frozen record coverage by dataset.", "/index.html#coverage", 0),
-    ("Reproduce section with technical note links.", "/index.html#reproduce", 0),
-    ("Bar chart of raw count flags versus model flags.", "/media/chart-flag-comparison.png", 0),
-    ("Held-out predictive coverage below the nominal 95 percent level.", "/media/chart-heldout-coverage.png", 0),
-    ("Pipeline from frozen inputs to static page.", "/media/architecture.png", 0),
+EXIFTOOL = Path(shutil.which("exiftool") or "")
+VIDEO_SIZE = (1280, 720)
+CAPTION_FONT_SIZE = 28
+CAPTION_PAD = 14
+CAPTION_MAX_LINES = 2
+STEP_HOLD_SECONDS = 5.0
+
+# caption, page path or media path, scroll selector (page only), wait selector (page only)
+STEPS: list[tuple[str, str, str | None, str | None]] = [
+    (
+        "Overview of the static results page.",
+        "/index.html",
+        None,
+        "main#main h1",
+    ),
+    (
+        "Change comparison table for 893 agency and mode pairs.",
+        "/index.html",
+        "#model-results",
+        "#model-results table.results tbody tr",
+    ),
+    (
+        "Frozen record coverage by dataset.",
+        "/index.html",
+        "#coverage",
+        "#coverage table tbody tr",
+    ),
+    (
+        "Reproduce section with technical note links.",
+        "/index.html",
+        "#reproduce",
+        "#reproduce h2",
+    ),
+    (
+        "Bar chart of raw count flags versus model flags.",
+        "/media/chart-flag-comparison.png",
+        None,
+        None,
+    ),
+    (
+        "Held-out predictive coverage below the nominal 95 percent level.",
+        "/media/chart-heldout-coverage.png",
+        None,
+        None,
+    ),
+    (
+        "Pipeline from frozen inputs to static page.",
+        "/media/architecture.png",
+        None,
+        None,
+    ),
 ]
 
 
@@ -64,6 +112,165 @@ def chrome_screenshot(url: str, dest: Path, window: str = "1400,900") -> None:
             "--hide-scrollbars",
             url,
         ]
+    )
+
+
+def free_port() -> int:
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
+        sock.bind(("127.0.0.1", 0))
+        return int(sock.getsockname()[1])
+
+
+class CdpSession:
+    def __init__(self) -> None:
+        self._msg_id = 0
+        self._ws: object | None = None
+
+    async def connect(self, ws_url: str) -> None:
+        import websockets
+
+        self._ws = await websockets.connect(ws_url, max_size=None)
+
+    async def close(self) -> None:
+        if self._ws is not None:
+            await self._ws.close()
+            self._ws = None
+
+    async def call(self, method: str, params: dict | None = None) -> dict:
+        assert self._ws is not None
+        self._msg_id += 1
+        req_id = self._msg_id
+        await self._ws.send(json.dumps({"id": req_id, "method": method, "params": params or {}}))
+        while True:
+            raw = await self._ws.recv()
+            data = json.loads(raw)
+            if data.get("id") != req_id:
+                continue
+            if "error" in data:
+                raise RuntimeError(data["error"])
+            return data.get("result") or {}
+
+
+async def cdp_capture_viewport(
+    port: int,
+    url: str,
+    scroll_selector: str | None,
+    wait_selector: str | None,
+    settle_s: float,
+) -> bytes:
+    quoted = urllib.parse.quote(url, safe=":/?#=&%")
+    with urllib.request.urlopen(
+        urllib.request.Request(f"http://127.0.0.1:{port}/json/new?{quoted}", method="PUT"),
+        timeout=30,
+    ) as resp:
+        target = json.load(resp)
+    ws_url = target["webSocketDebuggerUrl"]
+    session = CdpSession()
+    await session.connect(ws_url)
+    try:
+        await session.call("Page.enable")
+        await session.call("Page.navigate", {"url": url})
+        for _ in range(80):
+            ready = await session.call(
+                "Runtime.evaluate",
+                {"expression": "document.readyState", "returnByValue": True},
+            )
+            if ready.get("result", {}).get("value") == "complete":
+                break
+            await asyncio.sleep(0.05)
+        if wait_selector:
+            expr = (
+                f"(function() {{"
+                f"const el = document.querySelector({json.dumps(wait_selector)});"
+                f"return Boolean(el);"
+                f"}})()"
+            )
+            for _ in range(60):
+                found = await session.call(
+                    "Runtime.evaluate",
+                    {"expression": expr, "returnByValue": True},
+                )
+                if found.get("result", {}).get("value"):
+                    break
+                await asyncio.sleep(0.05)
+        if scroll_selector:
+            scroll_expr = (
+                f"(function() {{"
+                f"const el = document.querySelector({json.dumps(scroll_selector)});"
+                f"if (el) el.scrollIntoView({{block: 'start', inline: 'nearest'}});"
+                f"return Boolean(el);"
+                f"}})()"
+            )
+            await session.call("Runtime.evaluate", {"expression": scroll_expr})
+        await asyncio.sleep(settle_s)
+        shot = await session.call("Page.captureScreenshot", {"format": "png", "fromSurface": True})
+        data = shot.get("data")
+        if not data:
+            raise RuntimeError("empty screenshot from Chrome")
+        return base64.b64decode(data)
+    finally:
+        await session.close()
+        target_id = target.get("id")
+        if target_id:
+            urllib.request.urlopen(
+                urllib.request.Request(
+                    f"http://127.0.0.1:{port}/json/close/{target_id}",
+                    method="GET",
+                ),
+                timeout=10,
+            )
+
+
+def is_near_blank(path: Path) -> bool:
+    img = Image.open(path).convert("RGB")
+    small = img.resize((160, 90))
+    pixels = list(small.getdata())
+    if not pixels:
+        return True
+    mean_r = sum(p[0] for p in pixels) / len(pixels)
+    mean_g = sum(p[1] for p in pixels) / len(pixels)
+    mean_b = sum(p[2] for p in pixels) / len(pixels)
+    within = 0
+    for r, g, b in pixels:
+        if abs(r - mean_r) <= 8 and abs(g - mean_g) <= 8 and abs(b - mean_b) <= 8:
+            within += 1
+    return within / len(pixels) >= 0.92
+
+
+def capture_step_frame(
+    port: int,
+    caption: str,
+    path: str,
+    scroll: str | None,
+    wait: str | None,
+    dest: Path,
+) -> None:
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    url = page_url(path)
+    for attempt in range(2):
+        settle = 0.35 if attempt == 0 else 0.9
+        png = asyncio.run(cdp_capture_viewport(port, url, scroll, wait, settle))
+        dest.write_bytes(png)
+        if not is_near_blank(dest):
+            return
+    print(f"Warning: frame may be blank after retry: {caption}", file=sys.stderr)
+
+
+def start_headless_chrome(port: int) -> subprocess.Popen[bytes]:
+    return subprocess.Popen(
+        [
+            str(CHROME),
+            f"--remote-debugging-port={port}",
+            "--headless=new",
+            "--no-sandbox",
+            "--disable-gpu",
+            "--allow-file-access-from-files",
+            "--hide-scrollbars",
+            "--window-size=1400,900",
+            "about:blank",
+        ],
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
     )
 
 
@@ -192,12 +399,11 @@ def _arrow_head(x0: int, y0: int, x1: int, y1: int) -> list[tuple[int, int]]:
 def write_vtt(path: Path) -> None:
     lines = ["WEBVTT", ""]
     t = 0.0
-    for caption, _, _hold in STEPS:
-        duration = 5.0
+    for caption, _, _, _ in STEPS:
         start = format_time(t)
-        end = format_time(t + duration)
+        end = format_time(t + STEP_HOLD_SECONDS)
         lines.extend([f"{start} --> {end}", caption, ""])
-        t += duration
+        t += STEP_HOLD_SECONDS
     path.write_text("\n".join(lines), encoding="utf-8")
 
 
@@ -208,27 +414,65 @@ def format_time(seconds: float) -> str:
     return f"{h:02d}:{m:02d}:{s:06.3f}"
 
 
+def wrap_caption(text: str, draw: ImageDraw.ImageDraw, caption_font: ImageFont.ImageFont, max_width: int) -> list[str]:
+    words = text.split()
+    lines: list[str] = []
+    current = ""
+    for word in words:
+        trial = f"{current} {word}".strip()
+        if draw.textlength(trial, font=caption_font) <= max_width:
+            current = trial
+        else:
+            if current:
+                lines.append(current)
+            current = word
+    if current:
+        lines.append(current)
+    return lines[:CAPTION_MAX_LINES]
+
+
+def fit_content_frame(src: Image.Image, content_box: tuple[int, int, int, int]) -> Image.Image:
+    x0, y0, x1, y1 = content_box
+    canvas = Image.new("RGB", VIDEO_SIZE, "#1a1a1a")
+    area_w, area_h = x1 - x0, y1 - y0
+    scale = min(area_w / src.width, area_h / src.height)
+    new_w = max(1, int(src.width * scale))
+    new_h = max(1, int(src.height * scale))
+    resized = src.resize((new_w, new_h), Image.Resampling.LANCZOS)
+    ox = x0 + (area_w - new_w) // 2
+    oy = y0 + (area_h - new_h) // 2
+    canvas.paste(resized, (ox, oy))
+    return canvas
+
+
+def add_caption_frame(frame_path: Path, caption: str, dest: Path) -> None:
+    src = Image.open(frame_path).convert("RGB")
+    caption_font = font(CAPTION_FONT_SIZE)
+    caption_h = CAPTION_FONT_SIZE * CAPTION_MAX_LINES + CAPTION_PAD * 3
+    content_box = (0, 0, VIDEO_SIZE[0], VIDEO_SIZE[1] - caption_h)
+    base = fit_content_frame(src, content_box)
+    draw = ImageDraw.Draw(base)
+    max_text_w = VIDEO_SIZE[0] - 2 * CAPTION_PAD
+    lines = wrap_caption(caption, draw, caption_font, max_text_w)
+    line_h = CAPTION_FONT_SIZE + 6
+    box_h = len(lines) * line_h + CAPTION_PAD * 2
+    box_top = VIDEO_SIZE[1] - box_h
+    draw.rectangle([0, box_top, VIDEO_SIZE[0], VIDEO_SIZE[1]], fill="#111111")
+    y = box_top + CAPTION_PAD
+    for line in lines:
+        draw.text((VIDEO_SIZE[0] // 2, y), line, fill="white", font=caption_font, anchor="mt")
+        y += line_h
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    base.save(dest)
+
+
 def build_video(frame_dir: Path, mp4: Path, preview: Path, poster: Path) -> None:
-    duration = 5.0
     segments: list[Path] = []
-    for idx, (caption, _, _) in enumerate(STEPS):
+    for idx, (caption, _, _, _) in enumerate(STEPS):
         frame = frame_dir / f"step-{idx:02d}.png"
         labelled = frame_dir / f"step-{idx:02d}-cap.png"
         segment = frame_dir / f"step-{idx:02d}.mp4"
-        run(
-            [
-                str(FFMPEG),
-                "-y",
-                "-i",
-                str(frame),
-                "-vf",
-                f"drawtext=text='{escape_drawtext(caption)}':fontsize=28:fontcolor=white:"
-                "box=1:boxcolor=black@0.55:boxborderw=12:x=(w-text_w)/2:y=h-90",
-                str(labelled),
-            ],
-            stdout=subprocess.DEVNULL,
-            stderr=subprocess.DEVNULL,
-        )
+        add_caption_frame(frame, caption, labelled)
         run(
             [
                 str(FFMPEG),
@@ -238,7 +482,7 @@ def build_video(frame_dir: Path, mp4: Path, preview: Path, poster: Path) -> None
                 "-i",
                 str(labelled),
                 "-t",
-                str(duration),
+                str(STEP_HOLD_SECONDS),
                 "-c:v",
                 "libx264",
                 "-pix_fmt",
@@ -288,16 +532,17 @@ def build_video(frame_dir: Path, mp4: Path, preview: Path, poster: Path) -> None
     )
 
 
-def escape_drawtext(text: str) -> str:
-    return text.replace(":", "\\:").replace("'", "\\'")
-
-
 def main() -> int:
     if not CHROME.is_file():
         print("Google Chrome not found for headless screenshots.", file=sys.stderr)
         return 1
     if not FFMPEG or not FFMPEG.is_file():
         print("ffmpeg not found on PATH.", file=sys.stderr)
+        return 1
+    try:
+        import websockets  # noqa: F401
+    except ImportError:
+        print("websockets package required for demo frame capture.", file=sys.stderr)
         return 1
 
     MEDIA.mkdir(parents=True, exist_ok=True)
@@ -318,8 +563,30 @@ def main() -> int:
     page.crop((0, 520, 1400, 1180)).save(MEDIA / "example-results-table.png")
     page.crop((0, 1180, 1400, 1900)).save(MEDIA / "example-coverage-table.png")
     full_page.unlink(missing_ok=True)
-    for idx, (_, path, _) in enumerate(STEPS):
-        chrome_screenshot(page_url(path), frames / f"step-{idx:02d}.png")
+
+    port = free_port()
+    chrome_proc = start_headless_chrome(port)
+    try:
+        for _ in range(40):
+            try:
+                with urllib.request.urlopen(f"http://127.0.0.1:{port}/json/version", timeout=1) as resp:
+                    if resp.status == 200:
+                        break
+            except OSError:
+                pass
+            time.sleep(0.1)
+        for idx, (caption, path, scroll, wait) in enumerate(STEPS):
+            capture_step_frame(
+                port,
+                caption,
+                path,
+                scroll,
+                wait,
+                frames / f"step-{idx:02d}.png",
+            )
+    finally:
+        chrome_proc.terminate()
+        chrome_proc.wait(timeout=10)
 
     for path in list(MEDIA.glob("*.png")) + list(frames.glob("*.png")):
         strip_image(path)
