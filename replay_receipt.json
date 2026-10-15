@@ -1,0 +1,11 @@
+{
+  "checksums_match": true,
+  "commit": "0b6cc9515037c53bbeaebf76744c6d7566bbd2c6",
+  "destination": "work-tmp/replay-release-r1/checkout",
+  "exit_code": 0,
+  "local_checksums_match": true,
+  "local_inputs_staged": 25,
+  "local_outputs_compared": 8,
+  "network": "disabled_in_process",
+  "outputs_compared": 24
+}
