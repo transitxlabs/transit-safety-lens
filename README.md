@@ -1,26 +1,8 @@
 # Transit Safety Lens
 
-Transit Safety Lens is a research package by TransitX Labs Inc. It checks how complete, consistent and comparable the official US National Transit Database safety records it acquired are. It estimates changes in reported event rates per vehicle revenue mile under a stated statistical model. For transit safety analysts, regulators and researchers who compare agencies' public safety records.
+Do year-to-year changes in reported transit safety event rates stand out from noise in the US National Transit Database? Comparing 2021 with 2022 for 893 agency and mode pairs, raw counts flag 575 changes (351 increases, 224 decreases). A stated gamma-Poisson model, with priors fitted on 2019, flags 73 (55 increases, 18 decreases). On held-out data its 95 percent prediction intervals covered 742 of 818 outcomes (90.7 percent), below the nominal level, so the model's flags stay exploratory. A public aggregate research release by TransitX Labs Inc. (2026-10-11), with incident and non-major raw rows excluded from tracking; the results are below and on [the results page](https://transitxlabs.github.io/transit-safety-lens/).
 
-![Top of the Transit Safety Lens results page: the public aggregate release note of 2026-10-11, what the records support and what they do not, and the start of the model-conditional change results.](docs/media/hero.png)
-
-How it was made: its code and documentation were written with AI coding assistants and reviewed, tested and revised by Amir Daneshpajouh.
-
-**[Try it live](https://transitxlabs.github.io/transit-safety-lens/)** (static summary page; no install required).
-
-[![Screen recording preview of the static results page and output charts](docs/media/demo-preview.gif)](https://transitxlabs.github.io/transit-safety-lens/media/demo.mp4)
-
-| Raw count versus model flags (2021 to 2022) | Held-out predictive coverage |
-| --- | --- |
-| ![Bar chart comparing raw count flags (351 increases, 224 decreases) with model flags (55 increases, 18 decreases) among 893 comparisons.](docs/media/chart-flag-comparison.png) | ![Bar chart of held-out outcomes inside versus outside predictive intervals: 742 of 818 covered, below the nominal 95 percent level.](docs/media/chart-heldout-coverage.png) |
-
-![Offline rebuild pipeline from frozen National Transit Database inputs through checks, joins, priors, comparisons and published outputs.](docs/media/architecture.png)
-
-| Example outputs | |
-| --- | --- |
-| ![Crop of the change comparison table with naive and credible flag counts for raw count and raw rate baselines.](docs/media/example-results-table.png) | ![Crop of the frozen record coverage table for modal, major, nonmajor, fra_security and exposure datasets.](docs/media/example-coverage-table.png) |
-
-## How it works
+## Method
 
 1. Acquire official National Transit Database products and freeze them with hashes.
 2. Check every acquired row and record accepted and rejected rows.
@@ -28,35 +10,6 @@ How it was made: its code and documentation were written with AI coding assistan
 4. Fit peer-group priors on 2019 and compare 2021 with 2022 for each agency and mode (893 comparisons kept, 663 excluded within one definition regime).
 5. Flag changes with posterior intervals and compare with raw count and rate flags; flags remain exploratory.
 6. Evaluate held-out years: fit on earlier data, flag 2020 to 2021 changes and score 2022 coverage (below nominal 95 percent).
-
-## Architecture
-
-![Diagram of pipeline stages: frozen inputs, record checks, exposure joins, 2019 priors, 2021 to 2022 comparisons, held-out evaluation, and CSV outputs with technical note and static page.](docs/media/architecture.png)
-
-Components: `scripts/acquire.py` (optional network fetch), `src/transit_safety_lens/pipeline.py` (offline rebuild), quality and definition modules, gamma-Poisson model in `model.py`, and `publish.py` for README, technical note and `docs/site/index.html`.
-
-## Design choices
-
-- **Frozen hashes on every acquired file** so rebuilds detect any change to official inputs before recomputing aggregates.
-- **Definition-regime guards** so year-to-year comparisons stay within one reporting rule set; blocked pairs are listed, not forced.
-- **Raw baselines beside the stated model** so analysts can see how many naive count or rate flags the shrinkage rule drops or keeps.
-- **Held-out coverage reported explicitly** because empirical interval coverage fell below the nominal 95 percent level in this release.
-
-## Why it matters
-
-Raw counts flagged 575 of 893 comparisons, the model 73; its prediction ranges caught fewer held-out results than 95 percent.
-
-## Showcase media
-
-Regenerate hero images, charts, captions and the demo video with:
-
-```bash
-python3 scripts/make_showcase_media.py
-```
-
-Requires Google Chrome, ffmpeg, and Pillow (installed with the package). Large `showcase-media/demo.mp4` stays local until Pages publish; copy it to `docs/media/demo.mp4` when enabling Pages.
-
-**Status: public aggregate release (2026-10-11), with incident and non-major raw rows excluded from tracking. Acquisition and revision gaps remain; held-out coverage is below nominal and flags remain exploratory.**
 
 ## Frozen record coverage
 
@@ -110,3 +63,5 @@ FTA workbook and original manual downloads returned access errors in the direct 
 Use Python 3.14 and the pinned dependencies in pyproject.toml. Install with `python -m pip install -e '.[dev]'`. Then `make rebuild` verifies frozen input hashes, processes every acquired record, and regenerates outputs, this README, the technical note and static page without network. `make check` runs lint, types and network-blocked fixtures. `python scripts/replay.py --destination work-tmp/replay-new --local-inputs .` exports the committed checkout and checks every rebuilt output hash against the committed output manifest. Use a new destination for every replay. Full rebuild and replay require the excluded local frozen inputs at their manifest paths; replay stages only size- and checksum-verified local inputs into the clean archive. The aggregate checkout alone cannot replay incident audits. The separate acquisition script requires official-source network access and a new ignored work-tmp destination; it never runs during rebuild or CI. A future download is a new release and cannot substitute for the recorded frozen bytes.
 
 Code: Apache-2.0. Data: source-specific terms, including an unresolved non-major licence, in [DATA.md](DATA.md). Attribution: Federal Transit Administration, U.S. Department of Transportation, National Transit Database. No government endorsement is implied.
+
+Its code and documentation were written with AI coding assistants under the direction of Amir Daneshpajouh, and checked by their tests and an AI-assisted release check before publication.
